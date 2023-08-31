@@ -8,6 +8,7 @@ import '../screens/login/login.dart';
 
 abstract class NavigationPath {
   NavigationPath._();
+  static const onboarding = '/onboarding';
   static const home = '/home';
   static const login = '/';
 }
@@ -26,6 +27,10 @@ abstract class AppRouter {
       }
     },
     routes: [
+      // GoRoute(
+      //   path: NavigationPath.onboarding,
+      //   builder: (_, __) => const OnboardingScreen(),
+      // ),
       GoRoute(
         path: NavigationPath.home,
         builder: (_, __) => const HomeScreen(),
