@@ -6,6 +6,7 @@ import '../common/error_screen.dart';
 import '../screens/home/home.dart';
 import '../screens/login/login.dart';
 import '../screens/onboarding/onboarding_screen.dart';
+import '../screens/singup/i_am_screen.dart';
 
 abstract class NavigationPath {
   NavigationPath._();
@@ -38,7 +39,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: NavigationPath.onboarding,
-        builder: (_, __) => const Onboarding(),
+        builder: (_, __) => const IAmScreen(),
       ),
     ],
     errorBuilder: (_, __) => const ErrorScreen(),
