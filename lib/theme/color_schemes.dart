@@ -18,9 +18,9 @@ const lightColorScheme = ColorScheme(
   errorContainer: Color(0xFFFFDAD6),
   onError: Color(0xFFFFFFFF),
   onErrorContainer: Color(0xFF410002),
-  background: Color(0xFFFFFBFF),
+  background: Color(0xffF3F3F3),
   onBackground: Color(0xFF1D1B16),
-  surface: Color(0xFFFFFBFF),
+  surface: Color(0xffF3F3F3),
   onSurface: Color(0xFF1D1B16),
   surfaceVariant: Color(0xFFE9E2D0),
   onSurfaceVariant: Color(0xFF4A4739),
@@ -32,6 +32,7 @@ const lightColorScheme = ColorScheme(
   surfaceTint: Color(0xFF6D5E00),
   // outlineVariant: Color(0xFFCDC6B4),
   // scrim: Color(0xFF000000),
+  // #E94057 redColor
 );
 
 const darkColorScheme = ColorScheme(
@@ -67,3 +68,12 @@ const darkColorScheme = ColorScheme(
   // outlineVariant: Color(0xFF4A4739),
   // scrim: Color(0xFF000000),
 );
+
+const primaryColor = Color(0xff2934D0);
+const whiteColor = Color(0xffFFFFFF);
+const blackColor = Color(0xff000000);
+const bgColor = Color(0xffF3F3F3);
+const orangeColor = Color(0xffF27121);
+const purpleColor = Color(0xff8A2387);
+const borderColor = Color(0xffE8E6EA);
+const redColor = Color(0xffE94057);
