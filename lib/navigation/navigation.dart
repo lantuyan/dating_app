@@ -7,7 +7,7 @@ import '../screens/code/code.dart';
 import '../screens/home/home.dart';
 import '../screens/login/login.dart';
 import '../screens/numberphone/number_phone.dart';
-import '../screens/onboarding/onboarding_screen.dart';
+import '../screens/auth/auth.dart';
 import '../screens/signup/sign_up_screen.dart';
 
 abstract class NavigationPath {
@@ -18,6 +18,10 @@ abstract class NavigationPath {
   static const code = '/code';
   static const home = '/home';
   static const login = '/';
+  static const genderScreen = '/genderScreen';
+  static const passionScreen = '/passionScreen';
+  static const friendScreen = '/friendScreen';
+  static const notificationScreen = '/notificationScreen';
 }
 
 abstract class AppRouter {
@@ -25,7 +29,7 @@ abstract class AppRouter {
 
   static final routerConfig = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: NavigationPath.onboarding,
+    initialLocation: NavigationPath.genderScreen,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
         return NavigationPath.home;
@@ -45,6 +49,22 @@ abstract class AppRouter {
       GoRoute(
         path: NavigationPath.onboarding,
         builder: (_, __) => const Onboarding(),
+      ),
+      GoRoute(
+        path: NavigationPath.genderScreen,
+        builder: (_, __) => const GenderScreen(),
+      ),
+      GoRoute(
+        path: NavigationPath.passionScreen,
+        builder: (_, __) =>  const PassionScreen(),
+      ),
+      GoRoute(
+        path: NavigationPath.friendScreen,
+        builder: (_, __) => const FriendScreen(),
+      ),
+      GoRoute(
+        path: NavigationPath.notificationScreen,
+        builder: (_, __) => const NotificationScreen(),
       ),
       GoRoute(
         path: NavigationPath.signup,
