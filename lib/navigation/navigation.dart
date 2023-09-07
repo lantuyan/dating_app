@@ -3,13 +3,19 @@ import 'package:go_router/go_router.dart';
 
 import '../blocs/authentication/authentication_cubit.dart';
 import '../common/error_screen.dart';
+import '../screens/code/code.dart';
 import '../screens/home/home.dart';
 import '../screens/login/login.dart';
+import '../screens/numberphone/number_phone.dart';
 import '../screens/auth/auth.dart';
+import '../screens/signup/sign_up_screen.dart';
 
 abstract class NavigationPath {
   NavigationPath._();
   static const onboarding = '/onboarding';
+  static const signup = '/signup';
+  static const numberphone = '/numberphone';
+  static const code = '/code';
   static const home = '/home';
   static const login = '/';
   static const genderScreen = '/genderScreen';
@@ -59,6 +65,18 @@ abstract class AppRouter {
       GoRoute(
         path: NavigationPath.notificationScreen,
         builder: (_, __) => const NotificationScreen(),
+      ),
+      GoRoute(
+        path: NavigationPath.signup,
+        builder: (_, __) => const SignUpScreen(),
+      ),
+      GoRoute(
+        path: NavigationPath.numberphone,
+        builder: (_, __) => const NumberPhoneScreen(),
+      ),
+      GoRoute(
+        path: NavigationPath.code,
+        builder: (_, __) => const CodeScreen(),
       ),
     ],
     errorBuilder: (_, __) => const ErrorScreen(),

@@ -1,12 +1,14 @@
 import 'package:dating_app/screens/auth/onboarding/component/page_card.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../navigation/navigation.dart';
+import '../../component/my_button.dart';
 import '../models/card_page.dart';
 import 'dart:math' as math;
 
 import 'indicator.dart';
-import 'my_button.dart';
 
 
 class CardCarouse extends StatefulWidget {
@@ -77,7 +79,7 @@ class _CardCarouseState extends State<CardCarouse> {
 
        Indicator(pageController: _pageController),
        Padding(
-         padding: const EdgeInsets.symmetric(horizontal: 10),
+         padding: const EdgeInsets.symmetric(horizontal: 20),
          child: MyButton(textMy: 'Create an account',onTap: (){}),
        ),
 
@@ -85,7 +87,11 @@ class _CardCarouseState extends State<CardCarouse> {
          mainAxisAlignment: MainAxisAlignment.center,
          children: [
            Text('Already have an account?'),
-           Text('Sign In', style: TextStyle(color: Colors.pink, fontWeight: FontWeight.bold),)
+           GestureDetector(
+               onTap: (){
+                 context.go(NavigationPath.signup);
+               },
+               child: Text('Sign In', style: TextStyle(color: Colors.pink, fontWeight: FontWeight.bold),))
          ],
        )
       ],

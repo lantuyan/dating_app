@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
+class PhoneButton extends StatelessWidget {
   final String textMy;
   final Function()? onTap;
-  const MyButton({
+  const PhoneButton({
     Key? key,
     required this.onTap,
     required this.textMy,
@@ -15,14 +15,16 @@ class MyButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding:const EdgeInsets.all(18),
-        margin:const EdgeInsets.symmetric(horizontal: 10),
+        margin:const EdgeInsets.symmetric(horizontal: 25),
         decoration: BoxDecoration(
-            color: Colors.pink,
-            borderRadius: BorderRadius.circular(20)
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.grey.shade300),
+
         ),
         child: Center(
           child: Text(textMy, style: TextStyle(
-              color: Colors.white,
+              color: Colors.pinkAccent,
               fontWeight: FontWeight.bold,
               fontSize: 16
           ),),
