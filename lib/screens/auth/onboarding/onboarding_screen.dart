@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../navigation/navigation.dart';
+import '../../../navigation/navigation.dart';
 import 'component/body.dart';
 
 class Onboarding extends StatelessWidget {

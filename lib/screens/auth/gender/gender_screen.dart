@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../theme/color_schemes.dart';
-import '../../theme/theme.dart';
+import '../../../navigation/navigation.dart';
+import '../../../theme/color_schemes.dart';
+import '../../../theme/theme.dart';
+import '../widgets/widgets.dart';
 
-class IAmScreen extends StatefulWidget {
-  const IAmScreen({super.key});
+class GenderScreen extends StatefulWidget {
+  const GenderScreen({super.key});
 
   @override
-  State<IAmScreen> createState() => _IAmScreenState();
+  State<GenderScreen> createState() => _GenderScreenState();
 }
 
-class _IAmScreenState extends State<IAmScreen> {
+class _GenderScreenState extends State<GenderScreen> {
   late int selectedIndex;
 
   @override
@@ -30,16 +32,22 @@ class _IAmScreenState extends State<IAmScreen> {
           child: Padding(
             padding: const EdgeInsets.only(left: 40, right: 40, top: 40),
             child: AppBar(
-              leading: backButton(),
-              actions: [
-                skipButton(),
+              // leading: backButton(),
+              leading: const BackToScreenButton(
+                  backRoute: NavigationPath.onboarding),
+              actions: const [
+                // skipButton(),
+                SkipButton(
+                  nextRoute: NavigationPath.passionScreen,
+                ),
+                // PassionPage(),
               ],
             ),
           ),
         ),
         body: Padding(
           padding:
-              const EdgeInsets.only(left: 40, right: 40, top: 40, bottom: 40),
+              const EdgeInsets.only(left: 40, right: 40, top: 20, bottom: 40),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -204,7 +212,11 @@ class _IAmScreenState extends State<IAmScreen> {
                   ),
                 ],
               ),
-              continueButon(),
+              // continueButon(),
+              const ConfirmButton(
+                nextRoute: NavigationPath.passionScreen,
+                labelButton: 'Continue',
+              ),
             ],
           ),
         ),
@@ -213,65 +225,6 @@ class _IAmScreenState extends State<IAmScreen> {
   }
 }
 
-Widget skipButton() {
-  return TextButton(
-    onPressed: () {},
-    child: const Text(
-      'Skip',
-      style: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        color: redColor,
-      ),
-    ),
-  );
-}
-
-Widget backButton() {
-  return Container(
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        // color: borderColor,
-        border: Border.all(
-          color: borderColor,
-          width: 2.0,
-        )),
-    child: IconButton(
-      icon: const Icon(
-        Icons.arrow_back_ios_new_rounded,
-        color: redColor,
-        size: 20,
-      ),
-      color: redColor,
-      onPressed: () {},
-    ),
-  );
-}
-
-Widget continueButon() {
-  return ElevatedButton(
-    onPressed: () {},
-    style: ButtonStyle(
-      padding: MaterialStateProperty.all<EdgeInsets>(
-        const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-      ),
-      backgroundColor: MaterialStateProperty.all<Color>(
-        redColor,
-      ),
-      overlayColor: MaterialStateProperty.all<Color>(Colors.red),
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-      ),
-    ),
-    child: const Text(
-      'Continue',
-      style: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        color: whiteColor,
-      ),
-    ),
-  );
-}
+// Widget selectGenderButton() {
+//   return const Placeholder();
+// }
