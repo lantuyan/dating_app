@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../navigation/navigation.dart';
-import '../../component/my_button.dart';
+import '../../../../navigation/navigation.dart';
+import 'my_button.dart';
 import '../models/card_page.dart';
 import 'dart:math' as math;
 
