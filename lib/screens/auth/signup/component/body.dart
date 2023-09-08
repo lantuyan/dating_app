@@ -1,9 +1,9 @@
-import 'package:dating_app/screens/signup/component/square_tile.dart';
+import 'package:dating_app/screens/auth/signup/component/square_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../navigation/navigation.dart';
-import '../../component/my_button.dart';
+import '../../../../navigation/navigation.dart';
+import '../../widgets/my_button.dart';
 import 'divider.dart';
 import 'phone_button.dart';
 

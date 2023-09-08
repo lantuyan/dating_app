@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-import '../../../navigation/navigation.dart';
-import '../../component/my_button.dart';
+import '../../../../navigation/navigation.dart';
+import '../../widgets/my_button.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
