@@ -87,7 +87,7 @@ class NotificationScreen extends StatelessWidget {
               
               // continueButon(),
               const ConfirmButton(
-                nextRoute: NavigationPath.onboarding, 
+                nextRoute: NavigationPath.homeScreen, 
                 labelButton: 'T want to be notified',
               ),
             ],
