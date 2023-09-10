@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,26 +28,29 @@ class _HomeScreenState extends State<HomeScreen> {
             child: AppBar(
               leading: const BackToScreenButton(
                   backRoute: NavigationPath.onboarding),
-              title: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Discover',
-                    style: TextStyle(
-                      color: redColor,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+              title: const Align(
+                alignment: Alignment.center,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Discover',
+                      style: TextStyle(
+                        color: redColor,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Chicago, II',
-                    style: TextStyle(
-                      color: redColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                    Text(
+                      'Chicago, II',
+                      style: TextStyle(
+                        color: redColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               actions: const [
                 FilterButton(),
@@ -196,6 +201,7 @@ class UserCard extends StatelessWidget {
         height: MediaQuery.of(context).size.height / 1.8,
         width: MediaQuery.of(context).size.width,
         child: Stack(
+          clipBehavior: Clip.none,
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
@@ -206,33 +212,158 @@ class UserCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
             ),
-            Container(
-              width: 90,
-              height: 90,
-              color: Colors.green,
+            Positioned(
+              top: 20,
+              left: 20,
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey.withOpacity(0.4),
+                ),
+                child: const Row(
+                  children: [
+                    Icon(
+                      Icons.location_on_outlined,
+                      color: whiteColor,
+                      size: 20,
+                    ),
+                    Text(
+                      '${1 + 2} km',
+                      style: TextStyle(
+                        color: whiteColor,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Positioned(
-              left: 20,
-              bottom: 20,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '${user.name}, ${user.age}',
-                    style: const TextStyle(
-                      color: whiteColor,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+              bottom: 0,
+              right: 0,
+              left: 0,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                  child: Container(
+                    // width: equal width parent container
+                    // width: double.infinity,
+                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${user.name}, ${user.age}',
+                          style: const TextStyle(
+                            color: whiteColor,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          '${user.jobTitle}',
+                          style: const TextStyle(
+                            color: whiteColor,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  Text(
-                    '${user.jobTitle}',
-                    style: const TextStyle(
-                      color: whiteColor,
-                      fontSize: 16,
-                    ),
+                ),
+              ),
+            ),
+            Positioned.fill(
+              right: -25,
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  height: 90,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.white.withOpacity(0.4),
                   ),
-                ],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.circle_rounded,
+                            color: whiteColor,
+                            size: 8,
+                          ),
+                          SizedBox(height: 5),
+                          Icon(
+                            Icons.circle_rounded,
+                            color: whiteColor.withOpacity(0.3),
+                            size: 8,
+                          ),
+                          SizedBox(height: 5),
+                          Icon(
+                            Icons.circle_rounded,
+                            color: whiteColor.withOpacity(0.3),
+                            size: 8,
+                          ),
+                          SizedBox(height: 5),
+                          Icon(
+                            Icons.circle_rounded,
+                            color: whiteColor.withOpacity(0.3),
+                            size: 8,
+                          ),
+                          SizedBox(height: 5),
+                          Icon(
+                            Icons.circle_rounded,
+                            color: whiteColor.withOpacity(0.3),
+                            size: 8,
+                          ),
+                        ],
+                      ),
+                       Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.circle_rounded,
+                            color: redColor,
+                            size: 8,
+                          ),
+                          SizedBox(height: 5),
+                          Icon(
+                            Icons.circle_rounded,
+                            color: redColor.withOpacity(0.3),
+                            size: 8,
+                          ),
+                          SizedBox(height: 5),
+                          Icon(
+                            Icons.circle_rounded,
+                            color: redColor.withOpacity(0.3),
+                            size: 8,
+                          ),
+                          SizedBox(height: 5),
+                          Icon(
+                            Icons.circle_rounded,
+                            color: redColor.withOpacity(0.3),
+                            size: 8,
+                          ),
+                          SizedBox(height: 5),
+                          Icon(
+                            Icons.circle_rounded,
+                            color: redColor.withOpacity(0.3),
+                            size: 8,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
