@@ -10,6 +10,7 @@ import '../screens/login/login.dart';
 import '../screens/auth/numberphone/number_phone.dart';
 import '../screens/auth/auth.dart';
 import '../screens/auth/signup/sign_up_screen.dart';
+import '../screens/main_screen.dart';
 
 abstract class NavigationPath {
   NavigationPath._();
@@ -24,6 +25,7 @@ abstract class NavigationPath {
   static const friendScreen = '/friendScreen';
   static const notificationScreen = '/notificationScreen';
   static const homeScreen = '/homeScreen';
+  static const mainScreen = '/:tab';
 }
 
 abstract class AppRouter {
@@ -35,7 +37,7 @@ abstract class AppRouter {
     // initialLocation: NavigationPath.homeScreen,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
-        return NavigationPath.homeScreen;
+        return NavigationPath.mainScreen.replaceFirst(':tab', '0');
       } else {
         return null;
       }
@@ -84,6 +86,17 @@ abstract class AppRouter {
       GoRoute(
         path: NavigationPath.homeScreen,
         builder: (_, __) => const HomeScreen(),
+      ),
+      GoRoute(
+        name: 'main',
+        path: NavigationPath.mainScreen,
+        builder: (context, state) {
+          final tab = int.tryParse(state.params['tab'] ?? '0') ?? 0;
+            return MainScreen(
+              key: state.pageKey,
+              currentTab: tab,
+            );
+        }
       ),
     ],
     errorBuilder: (_, __) => const ErrorScreen(),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../models/model.dart';
+// import '../../models/model.dart';
 import '../../theme/color_schemes.dart';
-import '../../theme/theme.dart';
 import 'bloc/swipe_bloc.dart';
 import 'bloc/swipe_provider.dart';
 import 'widgets/widgets.dart';
@@ -18,9 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.light,
-      home: Scaffold(
+    return Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size(0, 96),
           child: Padding(
@@ -141,51 +138,8 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
         ),
-        bottomNavigationBar: const NavigationBar(),
-      ),
-    );
+        // bottomNavigationBar: const NavigationBar(),
+      );
   }
 }
 
-class NavigationBar extends StatelessWidget {
-  const NavigationBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: bgColor,
-      showSelectedLabels: false,
-      selectedItemColor: redColor,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.style_rounded,
-            color: redColor,
-          ),
-          label: 'swipe',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.favorite_rounded,
-            color: Colors.grey,
-          ),
-          label: 'match',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.chat_bubble_rounded,
-            color: Colors.grey,
-          ),
-          label: 'chat',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.person_rounded,
-            color: Colors.grey,
-          ),
-          label: 'profile',
-        ),
-      ],
-    );
-  }
-}

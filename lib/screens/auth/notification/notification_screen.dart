@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../navigation/navigation.dart';
 import '../../../theme/color_schemes.dart';
-import '../../../theme/theme.dart';
 import '../widgets/widgets.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -10,9 +9,7 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.light,
-      home: Scaffold(
+    return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size(0, 96),
           child: Padding(
@@ -87,13 +84,12 @@ class NotificationScreen extends StatelessWidget {
               
               // continueButon(),
               const ConfirmButton(
-                nextRoute: NavigationPath.homeScreen, 
+                nextRoute: NavigationPath.mainScreen, 
                 labelButton: 'T want to be notified',
               ),
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
