@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../navigation/navigation.dart';
 import '../../../theme/color_schemes.dart';
-import '../../../theme/theme.dart';
 import '../widgets/widgets.dart';
 import 'model/passion.dart';
 import 'select_passion.dart';
@@ -15,9 +14,7 @@ class PassionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final passionList = fakeInterests;
-    return MaterialApp(
-      theme: AppTheme.light,
-      home: Scaffold(
+    return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size(0, 96),
           child: Padding(
@@ -94,7 +91,6 @@ class PassionScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
