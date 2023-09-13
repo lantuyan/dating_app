@@ -4,11 +4,13 @@ import 'package:go_router/go_router.dart';
 import '../blocs/authentication/authentication_cubit.dart';
 import '../common/error_screen.dart';
 import '../screens/auth/code/code.dart';
-import '../screens/home/home.dart';
+import '../screens/home/home_screen.dart';
+import '../screens/home_example/home.dart';
 import '../screens/login/login.dart';
 import '../screens/auth/numberphone/number_phone.dart';
 import '../screens/auth/auth.dart';
 import '../screens/auth/signup/sign_up_screen.dart';
+import '../screens/main_screen.dart';
 
 abstract class NavigationPath {
   NavigationPath._();
@@ -23,6 +25,9 @@ abstract class NavigationPath {
   static const friendScreen = '/friendScreen';
   static const notificationScreen = '/notificationScreen';
   static const profile = '/profileScreen';
+  static const homeScreen = '/homeScreen';
+  static const mainScreen = '/:tab';
+
 }
 
 abstract class AppRouter {
@@ -31,9 +36,10 @@ abstract class AppRouter {
   static final routerConfig = GoRouter(
     debugLogDiagnostics: true,
     initialLocation: NavigationPath.genderScreen,
+    // initialLocation: NavigationPath.homeScreen,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
-        return NavigationPath.home;
+        return NavigationPath.mainScreen.replaceFirst(':tab', '0');
       } else {
         return null;
       }
@@ -41,7 +47,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: NavigationPath.home,
-        builder: (_, __) => const HomeScreen(),
+        builder: (_, __) => const HomeScreenExample(),
       ),
       GoRoute(
         path: NavigationPath.login,
@@ -82,6 +88,19 @@ abstract class AppRouter {
       GoRoute(
         path: NavigationPath.profile,
         builder: (_, __) => const ProfileScreen(),
+        path: NavigationPath.homeScreen,
+        builder: (_, __) => const HomeScreen(),
+      ),
+      GoRoute(
+        name: 'main',
+        path: NavigationPath.mainScreen,
+        builder: (context, state) {
+          final tab = int.tryParse(state.params['tab'] ?? '0') ?? 0;
+            return MainScreen(
+              key: state.pageKey,
+              currentTab: tab,
+            );
+        }
       ),
     ],
     errorBuilder: (_, __) => const ErrorScreen(),

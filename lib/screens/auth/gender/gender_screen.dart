@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../../navigation/navigation.dart';
 import '../../../theme/color_schemes.dart';
-import '../../../theme/theme.dart';
 import '../widgets/widgets.dart';
 
 class GenderScreen extends StatefulWidget {
@@ -24,9 +23,7 @@ class _GenderScreenState extends State<GenderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.light,
-      home: Scaffold(
+    return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size(0, 96),
           child: Padding(
@@ -220,8 +217,7 @@ class _GenderScreenState extends State<GenderScreen> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
 
