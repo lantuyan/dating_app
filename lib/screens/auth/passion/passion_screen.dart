@@ -40,51 +40,53 @@ class PassionScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const Text(
-                    'I am a ',
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: blackColor,
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const Text(
+                      'I am a ',
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        color: blackColor,
+                      ),
                     ),
-                  ),
-                  const Text(
-                    'Select a few of your interests and let everyone know what'
-                    ' you are passionate about.',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                      color: blackColor,
-                      letterSpacing: 0.5,
-                      wordSpacing: 0.5,
-                    ),
-                    textAlign: TextAlign.justify,
+                    const Text(
+                      'Select a few of your interests and let everyone know what'
+                      ' you are passionate about.',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: blackColor,
+                        letterSpacing: 0.5,
+                        wordSpacing: 0.5,
+                      ),
+                      textAlign: TextAlign.justify,
 
-                  ),
-                  const SizedBox(height: 20),
-                  GridView.builder(
-                    shrinkWrap: true,
-                    itemCount: passionList.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 15,
-                      mainAxisSpacing: 15,
-                      mainAxisExtent: 50,
                     ),
-                    itemBuilder: (context, index) {
-                      return SelectPassionButton(
-                        passion: passionList[index].name,
-                        icon: passionList[index].icon,
-                        isSelected: passionList[index].selected,
-                      );
-                    },
-                  ),
-                ],
+                    const SizedBox(height: 20),
+                    GridView.builder(
+                      shrinkWrap: true,
+                      itemCount: passionList.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 15,
+                        mainAxisSpacing: 15,
+                        mainAxisExtent: 50,
+                      ),
+                      itemBuilder: (context, index) {
+                        return SelectPassionButton(
+                          passion: passionList[index].name,
+                          icon: passionList[index].icon,
+                          isSelected: passionList[index].selected,
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
               // continueButon(),
               const ConfirmButton(

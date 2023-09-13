@@ -44,36 +44,39 @@ class _CardCarouseState extends State<CardCarouse> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: AspectRatio(
-              aspectRatio: 0.85,
-              child: PageView.builder(
-                  onPageChanged: (value) {
-                    setState(() {
-                      initialPage = value;
-                    });
-                  },
-                  controller: _pageController,
-                  itemCount: cardpages.length,
-                  itemBuilder: (context, index) {
-                    var card = cardpages[index];
-                    var _scale = initialPage == index ? 1.0 : 0.8;
-                    return TweenAnimationBuilder(
-                        tween: Tween(begin: _scale , end: _scale),
-                        duration: const Duration(milliseconds: 350),
-                        curve: Curves.ease,
-                        child: PageCard(cardPage: card,),
-                        builder: (context, value, child) {
-                          return Transform.scale(
-                            scale: value,
-                            child: child,
-                          );
-                        },);
-                  }
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: AspectRatio(
+                aspectRatio: 0.85,
+                child: PageView.builder(
+                    onPageChanged: (value) {
+                      setState(() {
+                        initialPage = value;
+                      });
+                    },
+                    controller: _pageController,
+                    itemCount: cardpages.length,
+                    itemBuilder: (context, index) {
+                      var card = cardpages[index];
+                      var _scale = initialPage == index ? 1.0 : 0.8;
+                      return TweenAnimationBuilder(
+                          tween: Tween(begin: _scale , end: _scale),
+                          duration: const Duration(milliseconds: 350),
+                          curve: Curves.ease,
+                          child: PageCard(cardPage: card,),
+                          builder: (context, value, child) {
+                            return Transform.scale(
+                              scale: value,
+                              child: child,
+                            );
+                          },);
+                    }
 
-              ),
+                ),
+            ),
           ),
         ),
 
