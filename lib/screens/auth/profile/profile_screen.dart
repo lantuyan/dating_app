@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
           padding: const EdgeInsets.only(left: 40, right: 40, top: 40),
           child: AppBar(
             actions: const [
-              SkipButton( nextRoute: NavigationPath.friendScreen),
+              SkipButton( nextRoute: NavigationPath.genderScreen),
             ],
           ),
         ),
