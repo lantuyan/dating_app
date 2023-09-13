@@ -20,6 +20,7 @@ class PassionScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 40, right: 40, top: 40),
             child: AppBar(
+              scrolledUnderElevation : 0,
               leading: const BackToScreenButton(
                 backRoute: NavigationPath.genderScreen
               ),
@@ -42,7 +43,7 @@ class PassionScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const Text(
-                    'I am a ',
+                    'Interests with...',
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
@@ -63,23 +64,26 @@ class PassionScreen extends StatelessWidget {
 
                   ),
                   const SizedBox(height: 20),
-                  GridView.builder(
-                    shrinkWrap: true,
-                    itemCount: passionList.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 15,
-                      mainAxisSpacing: 15,
-                      mainAxisExtent: 50,
+                  Container(
+                    height: MediaQuery.of(context).size.height / 1.8,
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      itemCount: passionList.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 15,
+                        mainAxisSpacing: 15,
+                        mainAxisExtent: 50,
+                      ),
+                      itemBuilder: (context, index) {
+                        return SelectPassionButton(
+                          passion: passionList[index].name,
+                          icon: passionList[index].icon,
+                          isSelected: passionList[index].selected,
+                        );
+                      },
                     ),
-                    itemBuilder: (context, index) {
-                      return SelectPassionButton(
-                        passion: passionList[index].name,
-                        icon: passionList[index].icon,
-                        isSelected: passionList[index].selected,
-                      );
-                    },
                   ),
                 ],
               ),

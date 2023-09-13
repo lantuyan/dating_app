@@ -29,4 +29,9 @@ List<Interest> fakeInterests = [
   Interest(id: 12, name: 'Music', selected: false , icon :  Icons.music_note_outlined),
   Interest(id: 13, name: 'Drinking', selected: false , icon :   Icons.local_bar_outlined),
   Interest(id: 14, name: 'VideoGames', selected: false , icon :   Icons.videogame_asset_outlined),
+  Interest(id: 15, name: 'Traveling', selected: false , icon :  Icons.airplanemode_active_outlined),
+  Interest(id: 16, name: 'Extreme', selected: false , icon :  Icons.sports_esports_outlined),
+  Interest(id: 17, name: 'Music', selected: false , icon :  Icons.music_note_outlined),
+  Interest(id: 18, name: 'Drinking', selected: false , icon :   Icons.local_bar_outlined),
+  Interest(id: 19, name: 'VideoGames', selected: false , icon :   Icons.videogame_asset_outlined),
 ];
