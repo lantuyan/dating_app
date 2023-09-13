@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../navigation/navigation.dart';
 import 'keyboard.dart';
 import 'number_field.dart';
 
@@ -35,23 +37,7 @@ class _BodyState extends State<Body> {
     ).toList();
   }
 
- Widget renderConfirButton(){
-    return Row(
-      children: [
-        Expanded(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white
-              ),
-              onPressed: (){},
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Text('Send again', style: TextStyle(color: Colors.pinkAccent),),
-              ),
-            ))
-      ],
-    );
-  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -78,7 +64,23 @@ class _BodyState extends State<Body> {
               mainAxisAlignment: MainAxisAlignment.end,
               children:[
                 ...renderKeyBoard(),
-                renderConfirButton(),
+                Row(
+                  children: [
+                    Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white
+                          ),
+                          onPressed: (){
+                            context.go(NavigationPath.profile);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            child: Text('Send again', style: TextStyle(color: Colors.pinkAccent),),
+                          ),
+                        ))
+                  ],
+                ),
               ]
             )
 

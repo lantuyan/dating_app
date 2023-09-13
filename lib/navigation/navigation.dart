@@ -24,8 +24,10 @@ abstract class NavigationPath {
   static const passionScreen = '/passionScreen';
   static const friendScreen = '/friendScreen';
   static const notificationScreen = '/notificationScreen';
+  static const profile = '/profileScreen';
   static const homeScreen = '/homeScreen';
   static const mainScreen = '/:tab';
+
 }
 
 abstract class AppRouter {
@@ -84,6 +86,8 @@ abstract class AppRouter {
         builder: (_, __) => const NotificationScreen(),
       ),
       GoRoute(
+        path: NavigationPath.profile,
+        builder: (_, __) => const ProfileScreen(),
         path: NavigationPath.homeScreen,
         builder: (_, __) => const HomeScreen(),
       ),

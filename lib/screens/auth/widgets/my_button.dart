@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../theme/color_schemes.dart';
 
 class MyButton extends StatelessWidget {
   final String textMy;
@@ -17,7 +18,7 @@ class MyButton extends StatelessWidget {
         padding:const EdgeInsets.all(18),
         margin:const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
-            color: Colors.pink,
+          color: Color(0xffE94057),
             borderRadius: BorderRadius.circular(20)
         ),
         child: Center(

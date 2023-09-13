@@ -44,6 +44,9 @@ dependencies:
   percent_indicator: ^3.4.0
   google_fonts:
   intl_phone_field: ^3.1.0
+  flutter_svg: ^2.0.7
+  table_calendar: ^3.0.5
+
 
 dev_dependencies:
   flutter_test:
