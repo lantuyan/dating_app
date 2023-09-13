@@ -33,6 +33,9 @@ class _MainScreenState extends State<MainScreen> {
           selectedItemColor: redColor,
           unselectedItemColor: Colors.grey,
           currentIndex: widget.currentTab,
+          //disable animation when switch tab
+          type: BottomNavigationBarType.fixed,
+          showUnselectedLabels: false,
           onTap: (index) {
             setState(() {
               context.go(NavigationPath.mainScreen.replaceFirst(':tab', '$index'));

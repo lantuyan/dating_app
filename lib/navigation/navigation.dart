@@ -35,7 +35,7 @@ abstract class AppRouter {
 
   static final routerConfig = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: NavigationPath.genderScreen,
+    initialLocation: NavigationPath.onboarding,
     // initialLocation: NavigationPath.homeScreen,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
@@ -88,6 +88,9 @@ abstract class AppRouter {
       GoRoute(
         path: NavigationPath.profile,
         builder: (_, __) => const ProfileScreen(),
+        
+      ),
+      GoRoute(
         path: NavigationPath.homeScreen,
         builder: (_, __) => const HomeScreen(),
       ),
