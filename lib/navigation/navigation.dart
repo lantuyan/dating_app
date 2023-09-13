@@ -35,7 +35,7 @@ abstract class AppRouter {
     // initialLocation: NavigationPath.homeScreen,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
-        return NavigationPath.home;
+        return NavigationPath.homeScreen;
       } else {
         return null;
       }
