@@ -5,6 +5,7 @@ import '../blocs/authentication/authentication_cubit.dart';
 import '../common/error_screen.dart';
 import '../screens/auth/code/code.dart';
 import '../screens/home/home_screen.dart';
+import '../screens/home/user_profile/user_profile_screen.dart';
 import '../screens/home_example/home.dart';
 import '../screens/login/login.dart';
 import '../screens/auth/numberphone/number_phone.dart';
@@ -27,6 +28,7 @@ abstract class NavigationPath {
   static const profile = '/profileScreen';
   static const homeScreen = '/homeScreen';
   static const mainScreen = '/:tab';
+  static const userProfileScreen = '/userProfileScreen';
 
 }
 
@@ -35,7 +37,7 @@ abstract class AppRouter {
 
   static final routerConfig = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: NavigationPath.onboarding,
+    initialLocation: NavigationPath.homeScreen,
     // initialLocation: NavigationPath.homeScreen,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
@@ -95,6 +97,10 @@ abstract class AppRouter {
         builder: (_, __) => const HomeScreen(),
       ),
       GoRoute(
+        path: NavigationPath.userProfileScreen,
+        builder: (_, __) => const UserProfileScreen(),
+      ),
+      GoRoute(
         name: 'main',
         path: NavigationPath.mainScreen,
         builder: (context, state) {
@@ -103,8 +109,9 @@ abstract class AppRouter {
               key: state.pageKey,
               currentTab: tab,
             );
-        }
+        },
       ),
+       
     ],
     errorBuilder: (_, __) => const ErrorScreen(),
   );
