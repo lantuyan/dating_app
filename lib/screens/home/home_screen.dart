@@ -48,10 +48,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           LayoutBuilder(
                             builder: (context, constraints) => InkWell(
                               onTap: () {
-                                GoRouter.of(context).go(
-                                    NavigationPath.userProfileScreen.replaceFirst(
-                                        ':id', state.users[0].id.toString())
-                                );
+                                context.goNamed('userProfile',
+                                    // .replaceFirst(':id', state.users[0].id as String),
+                                    params: {
+                                      'tab': '0',
+                                      'id': state.users[0].id as String,
+                                    }
+
+                                    );
                               },
                               child: Draggable(
                                 feedback: UserCard(

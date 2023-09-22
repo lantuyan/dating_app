@@ -12,7 +12,7 @@ import '../screens/auth/numberphone/number_phone.dart';
 import '../screens/auth/auth.dart';
 import '../screens/auth/signup/sign_up_screen.dart';
 import '../screens/main_screen.dart';
-
+import '../models/user/user_model.dart';
 abstract class NavigationPath {
   NavigationPath._();
   static const onboarding = '/onboarding';
@@ -28,7 +28,7 @@ abstract class NavigationPath {
   static const profile = '/profileScreen';
   static const homeScreen = '/homeScreen';
   static const mainScreen = '/:tab';
-  static const userProfileScreen = '/userProfileScreen';
+  static const userProfileScreen = 'userProfileScreen/:id';
 
 }
 
@@ -37,7 +37,7 @@ abstract class AppRouter {
 
   static final routerConfig = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: NavigationPath.homeScreen,
+    initialLocation: NavigationPath.onboarding,
     // initialLocation: NavigationPath.homeScreen,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
@@ -92,17 +92,29 @@ abstract class AppRouter {
         builder: (_, __) => const ProfileScreen(),
         
       ),
-      GoRoute(
-        path: NavigationPath.homeScreen,
-        builder: (_, __) => const HomeScreen(),
-      ),
-      GoRoute(
-        path: NavigationPath.userProfileScreen,
-        builder: (_, __) => const UserProfileScreen(),
-      ),
+      // GoRoute(
+      //   path: NavigationPath.homeScreen,
+      //   builder: (_, __) => const HomeScreen(),
+      // ),
+      // GoRoute(
+      //   path: NavigationPath.userProfileScreen,
+      //   builder: (_, __) => const UserProfileScreen(
+      //     user: null,
+      //   ),
+      // ),
+        //  GoRoute(
+        //     name: 'userProfile',
+        //     path: NavigationPath.userProfileScreen,
+        //     builder: (context, state) {
+        //       return UserProfileScreen(
+        //         key: state.pageKey,
+        //         id: state.params['id'] as String,
+        //       );
+        //     },
+        //   ),
       GoRoute(
         name: 'main',
-        path: NavigationPath.mainScreen,
+        path: '/:tab',
         builder: (context, state) {
           final tab = int.tryParse(state.params['tab'] ?? '0') ?? 0;
             return MainScreen(
@@ -110,6 +122,18 @@ abstract class AppRouter {
               currentTab: tab,
             );
         },
+        routes: [
+           GoRoute(
+            name: 'userProfile',
+            path: 'userProfile/:id',
+            builder: (context, state) {
+              return UserProfileScreen(
+                key: state.pageKey,
+                id: state.params['id'] as String,
+              );
+            },
+          ),
+        ],
       ),
        
     ],

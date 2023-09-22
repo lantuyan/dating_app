@@ -15,16 +15,18 @@ class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
     on<SwipeRight>((event, emit) => _onSwipeRight(event, emit));
   }
 
- 
   void _onLoadUsers(LoadUsers event, Emitter<SwipeState> emit) {
     emit(SwipeLoaded(users: event.users));
   }
 
   void _onSwipeLeft(SwipeLeft event, Emitter<SwipeState> emit) {
     if (state is SwipeLoaded) {
+      final state = this.state as SwipeLoaded;
+      List<User> users = List.from(state.users)..remove(event.user);
+      
       try {
         emit(SwipeLoaded(
-          users: List.from((state as SwipeLoaded).users)..remove(event.user),
+          users: users,
         ));
       } catch (e) {}
     }
@@ -32,14 +34,15 @@ class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
 
   void _onSwipeRight(SwipeRight event, Emitter<SwipeState> emit) {
     if (state is SwipeLoaded) {
+      final state = this.state as SwipeLoaded;
+      List<User> users = List.from(state.users)..remove(event.user);
       try {
         emit(SwipeLoaded(
-          users: List.from((state as SwipeLoaded).users)..remove(event.user),
+          users: users,
         ));
       } catch (e) {}
     }
-  } 
- 
+  }
 
   //   Stream<SwipeState> mapEventToState(
   //   SwipeEvent event,

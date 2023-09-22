@@ -8,8 +8,9 @@ import '../../../theme/color_schemes.dart';
 import '../widgets/choice_button.dart';
 
 class UserProfileScreen extends StatefulWidget {
+    final String id;
 
-  const UserProfileScreen({super.key});
+  const UserProfileScreen({super.key, required this.id});
 
   
 
@@ -18,6 +19,8 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  late String userId = widget.id;
+  late User user = User.users.firstWhere((element) => element.id == userId);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +31,18 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           child: AppBar(
             backgroundColor: Colors.transparent,
             scrolledUnderElevation: 0,
-            leading:
-                const BackToScreenButton(backRoute: NavigationPath.homeScreen),
+            // leading: BackButton(
+            //   color: whiteColor,
+            //   onPressed: () {
+            //     context.pop();
+            //   },
+            // ),
+            leading: const BackToScreenButton(
+              backRoute: NavigationPath.homeScreen,
+            ),
+
+                //back to home screen
+                
           ),
         ),
       ),
@@ -48,7 +61,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                             image: NetworkImage(
-                              User.users[0].imageUrls[0],
+                              user.imageUrls[0],
                             ),
                             fit: BoxFit.cover),
                       ),
@@ -135,7 +148,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         children: [
                           Text.rich(
                             TextSpan(
-                              text: User.users[0].name,
+                              text: user.name,
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -143,7 +156,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               ),
                               children: [
                                 TextSpan(
-                                  text: ', ${User.users[0].age}',
+                                  text: ', ${user.age}',
                                   style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
@@ -154,7 +167,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             ),
                           ),
                           Text(
-                            User.users[0].jobTitle,
+                            user.jobTitle,
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.normal,
@@ -191,7 +204,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            User.users[0].location,
+                            user.location,
                             style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -200,7 +213,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           ),
                           Text.rich(
                             TextSpan(
-                              text: User.users[0].location,
+                              text: user.location,
                               style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.normal,
@@ -208,7 +221,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               ),
                               children: [
                                 TextSpan(
-                                  text: ', ${User.users[0].location}',
+                                  text: ', ${user.location}',
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.normal,
@@ -260,7 +273,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         ),
                       ),
                       Text(
-                        User.users[0].bio,
+                        user.bio,
                         maxLines: 3,
                         style: const TextStyle(
                           fontSize: 16,
@@ -326,7 +339,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                     size: 18,
                                   ),
                                   Text(
-                                    User.users[0].interests[index],
+                                    user.interests[index],
                                     style: const TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.normal,
@@ -378,7 +391,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: NetworkImage(User.users[0].imageUrls[1]),
+                            image: NetworkImage(user.imageUrls[1]),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -390,7 +403,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: NetworkImage(User.users[0].imageUrls[2]),
+                            image: NetworkImage(user.imageUrls[2]),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -407,7 +420,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: NetworkImage(User.users[0].imageUrls[1]),
+                            image: NetworkImage(user.imageUrls[1]),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -419,7 +432,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: NetworkImage(User.users[0].imageUrls[2]),
+                            image: NetworkImage(user.imageUrls[2]),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -431,7 +444,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: NetworkImage(User.users[0].imageUrls[2]),
+                            image: NetworkImage(user.imageUrls[2]),
                             fit: BoxFit.cover,
                           ),
                         ),
