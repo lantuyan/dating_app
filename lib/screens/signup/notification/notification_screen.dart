@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../navigation/navigation.dart';
 import '../../../theme/color_schemes.dart';
 import '../widgets/widgets.dart';
 
@@ -86,6 +87,7 @@ class NotificationScreen extends StatelessWidget {
               
               // continueButon(),
               ConfirmButton(
+                nextRoute: NavigationPath.mainScreen,
                 tabController: tabController, 
                 labelButton: 'T want to be notified',
               ),

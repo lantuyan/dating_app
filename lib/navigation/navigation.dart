@@ -16,7 +16,7 @@ abstract class NavigationPath {
   static const signupScreen = '/signup';
   static const homeScreen = '/homeScreen';
   static const mainScreen = '/:tab';
-  static const userProfileScreen = 'userProfileScreen/:id';
+  static const userProfileScreen = 'userProfile/:id';
 
 }
 
@@ -53,7 +53,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         name: 'main',
-        path: '/:tab',
+        path: NavigationPath.mainScreen,
         builder: (context, state) {
           final tab = int.tryParse(state.params['tab'] ?? '0') ?? 0;
             return MainScreen(
@@ -64,7 +64,7 @@ abstract class AppRouter {
         routes: [
            GoRoute(
             name: 'userProfile',
-            path: 'userProfile/:id',
+            path: NavigationPath.userProfileScreen,
             builder: (context, state) {
               return UserProfileScreen(
                 key: state.pageKey,
