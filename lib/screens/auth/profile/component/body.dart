@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../../../../navigation/navigation.dart';
 import '../../widgets/confirm_button.dart';
 import '../../widgets/my_button.dart';
 import 'choose.dart';
@@ -107,7 +109,9 @@ class _BodyState extends State<Body> {
               ],
             ),
           ),
-          MyButton(onTap: (){},textMy: 'Confirm',),
+          MyButton(onTap: (){
+            context.go(NavigationPath.chat);
+          },textMy: 'Confirm',),
           const SizedBox(height: 20,),
 
         ],

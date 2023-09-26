@@ -6,6 +6,7 @@ import '../di/service_locator.dart';
 import '../domain/repositories/example_repository.dart';
 import '../l10n/l10n.dart';
 import '../navigation/navigation.dart';
+import '../screens/auth/chat/bloc/bloc_bubblestrories.dart';
 import '../theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -24,6 +25,9 @@ class App extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => AuthenticationCubit(),
+          ),
+          BlocProvider<BloCBubble>(
+            create: (BuildContext context) => BloCBubble(),
           ),
         ],
         child: const AppView(),
