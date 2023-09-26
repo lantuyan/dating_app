@@ -13,7 +13,7 @@ class AppBarCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: const BackToScreenButton(
-          backRoute: NavigationPath.onboarding),
+          backRoute: NavigationPath.onboardingScreen),
       title: const Align(
         alignment: Alignment.center,
         child: Column(

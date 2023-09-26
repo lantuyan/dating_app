@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 // import '../../models/model.dart';
-import '../../navigation/navigation.dart';
 import '../../theme/color_schemes.dart';
 import 'bloc/swipe_bloc.dart';
 import 'bloc/swipe_provider.dart';
