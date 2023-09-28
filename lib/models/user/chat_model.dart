@@ -25,49 +25,49 @@ class Chat extends Equatable {
       ];
 
   static List<Chat> chats = [
-    Chat(
-      id: 1,
-      userId: 1,
-      matchedUserId: 2,
-      messages: Message.matches.where(
-        (message) {
-          return message.senderId == 1 && message.receiverId == 2 ||
-                 message.senderId == 2 && message.receiverId == 1;
-        },
-      ).toList(),
-    ),
-    Chat(
-      id: 2,
-      userId: 1,
-      matchedUserId: 3,
-      messages: Message.matches.where(
-        (message) {
-          return message.senderId == 1 && message.receiverId == 3 ||
-                 message.senderId == 3 && message.receiverId == 1;
-        },
-      ).toList(),
-    ),
-    Chat(
-      id: 3,
-      userId: 1,
-      matchedUserId: 4,
-      messages: Message.matches.where(
-        (message) {
-          return message.senderId == 1 && message.receiverId == 4 ||
-                 message.senderId == 4 && message.receiverId == 1;
-        },
-      ).toList(),
-    ),
-    Chat(
-      id: 4,
-      userId: 1,
-      matchedUserId: 5,
-      messages: Message.matches.where(
-        (message) {
-          return message.senderId == 1 && message.receiverId == 5 ||
-                 message.senderId == 5 && message.receiverId == 1;
-        },
-      ).toList(),
-    ),
+    // Chat(
+    //   id: 1,
+    //   userId: 1,
+    //   matchedUserId: 2,
+    //   messages: Message.matches.where(
+    //     (message) {
+    //       return message.senderId == 1 && message.receiverId == 2 ||
+    //              message.senderId == 2 && message.receiverId == 1;
+    //     },
+    //   ).toList(),
+    // ),
+    // Chat(
+    //   id: 2,
+    //   userId: 1,
+    //   matchedUserId: 3,
+    //   messages: Message.matches.where(
+    //     (message) {
+    //       return message.senderId == 1 && message.receiverId == 3 ||
+    //              message.senderId == 3 && message.receiverId == 1;
+    //     },
+    //   ).toList(),
+    // ),
+    // Chat(
+    //   id: 3,
+    //   userId: 1,
+    //   matchedUserId: 4,
+    //   messages: Message.matches.where(
+    //     (message) {
+    //       return message.senderId == 1 && message.receiverId == 4 ||
+    //              message.senderId == 4 && message.receiverId == 1;
+    //     },
+    //   ).toList(),
+    // ),
+    // Chat(
+    //   id: 4,
+    //   userId: 1,
+    //   matchedUserId: 5,
+    //   messages: Message.matches.where(
+    //     (message) {
+    //       return message.senderId == 1 && message.receiverId == 5 ||
+    //              message.senderId == 5 && message.receiverId == 1;
+    //     },
+    //   ).toList(),
+    // ),
   ];
 }
