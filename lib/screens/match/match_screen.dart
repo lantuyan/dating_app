@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/model.dart';
 import '../../theme/color_schemes.dart';
-import 'widgets/app_bar.dart';
+import 'widgets/widgets.dart';
 
 class MatchScreen extends StatelessWidget {
   const MatchScreen({super.key});
@@ -19,6 +19,37 @@ class MatchScreen extends StatelessWidget {
         .where((match) => match.userId == 1 && match.chat!.isNotEmpty)
         .toList();
 
+    final matchWidgets = <Widget>[];
+    List<UserMatch> matchesForDay = <UserMatch>[];
+    int previousDay = 0;
+
+    for (final match in inactiveMatches) {
+      final day = DateTime.now().difference(match.date).inDays;
+      print('day is $day');
+
+      if (previousDay != day) {
+        // Add a "dayLine" when the day changes.
+        matchWidgets.add(dayLine(previousDay ?? 0));
+
+        // Add the list of matches for the current day to the widget tree.
+        matchWidgets.add(MatchGridList(inactiveMatches: matchesForDay));
+
+        // Clear the list for the next day.
+        matchesForDay = <UserMatch>[];
+      }
+
+      // Accumulate matches for the current day.
+      matchesForDay.add(match);
+
+      previousDay = day;
+    }
+
+    // Add the last set of matches.
+    if (matchesForDay.isNotEmpty) {
+      matchWidgets.add(dayLine(previousDay));
+      matchWidgets.add(MatchGridList(inactiveMatches: matchesForDay));
+    }
+
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size(0, 96),
@@ -30,7 +61,7 @@ class MatchScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.only(left: 40, right: 40, top: 20),
         child: Column(
-          children: [
+          children: <Widget>[
             Text(
               'This is a list of people who have liked you and your matches.',
               textAlign: TextAlign.justify,
@@ -41,79 +72,58 @@ class MatchScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 10, left: 0),
-                    child: Divider(
-                      color: blackColor.withOpacity(0.6),
-                      thickness: 0.5,
-                    ),
-                  ),
-                ),
-                Text(
-                  'Today',
-                  style: TextStyle(
-                    color: blackColor.withOpacity(0.6),
-                    fontSize: 16,
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 10, right: 0),
-                    child: Divider(
-                      color: blackColor.withOpacity(0.6),
-                      thickness: 0.5,
-                    ),
-                  ),
-                ),
-              ],
-            ),
             const SizedBox(height: 20),
             Expanded(
-              child: Container(
-                child: GridView.builder(
-                  itemCount: inactiveMatches.length,
-                  shrinkWrap: true,
-                  gridDelegate: const  SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    childAspectRatio: 0.7,
-                    crossAxisSpacing: 15,
-                    mainAxisSpacing: 15,
-                  ),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            inactiveMatches[index].matchedUser.imageUrls[0],
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      child: Stack(
-                        fit: StackFit.loose,
-                        children: [
-                          Text(
-                            inactiveMatches[index].matchedUser.name,
-                            style: TextStyle(
-                              color: whiteColor,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
+              // matchWidgets
+              child: ListView(
+                children: [
+                  ...matchWidgets,
+                ],
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget dayLine(int dateTime) {
+    String date = dateTime.toString();
+    if (dateTime == 0) {
+      date = 'Today';
+    } else if (dateTime == 1) {
+      date = 'Yesterday';
+    } else {
+      date = '$dateTime days ago';
+    }
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(right: 10, left: 0),
+            child: Divider(
+              color: blackColor.withOpacity(0.6),
+              thickness: 0.5,
+            ),
+          ),
+        ),
+        Text(
+          '$date',
+          style: TextStyle(
+            color: blackColor.withOpacity(0.6),
+            fontSize: 16,
+          ),
+        ),
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(left: 10, right: 0),
+            child: Divider(
+              color: blackColor.withOpacity(0.6),
+              thickness: 0.5,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
