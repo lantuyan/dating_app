@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Body extends Stateful Widget {
+class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
   @override

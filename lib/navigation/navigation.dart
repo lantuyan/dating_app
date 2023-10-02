@@ -26,6 +26,7 @@ abstract class NavigationPath {
   static const chat = '/chatScreen';
   static const profilepage = '/profilePageScreen';
   static const settingScreen = '/settingScreen';
+  static const signin = '/signinScreen';
 }
 
 abstract class AppRouter {
@@ -33,7 +34,7 @@ abstract class AppRouter {
 
   static final routerConfig = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: NavigationPath.settingScreen,
+    initialLocation: NavigationPath.signin,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
         return NavigationPath.home;
@@ -97,6 +98,10 @@ abstract class AppRouter {
       GoRoute(
         path: NavigationPath.settingScreen,
         builder: (_, __) => const SettingScreen(),
+      ),
+      GoRoute(
+        path: NavigationPath.signin,
+        builder: (_, __) => const SignInScreen(),
       ),
     ],
     errorBuilder: (_, __) => const ErrorScreen(),
