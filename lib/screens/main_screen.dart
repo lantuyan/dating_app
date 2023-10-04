@@ -6,7 +6,7 @@ import '../theme/color_schemes.dart';
 import 'chat/chat_screen.dart';
 import 'home/home_screen.dart';
 import 'match/match_screen.dart';
-import 'profile/profile_screen.dart';
+import 'setting/setting_screen.dart';
 
 class MainScreen extends StatefulWidget {
 
@@ -21,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     MatchScreen(),
     ChatScreen(),
-    ProfileScreen(),
+    SettingScreen(),
   ];
   @override
   Widget build(BuildContext context) {

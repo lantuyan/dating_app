@@ -1,13 +1,49 @@
 import 'package:flutter/material.dart';
-
+import '../../theme/color_schemes.dart';
+import 'component/body.dart';
 class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
+  const ChatScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Chat Screen'),
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size(0, 96),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 40, top: 40),
+          child: AppBar(
+             title: Text('Messages',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),),
+            actions: const [
+              FilterButton(),
+            ],
+          ),
+        ),
+      ),
+      body:Body(),
+    );
+  }
+}
+class FilterButton extends StatelessWidget {
+  const FilterButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          // color: borderColor,
+          border: Border.all(
+            color: borderColor,
+            width: 2.0,
+          )),
+      child: IconButton(
+        icon: const Icon(
+          Icons.keyboard_double_arrow_down,
+          color: redColor,
+          size: 20,
+        ),
+        color: redColor,
+        onPressed: () {},
       ),
     );
   }

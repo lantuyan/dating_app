@@ -94,7 +94,7 @@ class _CardCarouseState extends State<CardCarouse> {
            Text('Already have an account?'),
            GestureDetector(
                onTap: (){
-
+                  context.go(NavigationPath.signinScreen);
                },
                child: Text('Sign In', style: TextStyle(color: Colors.pink, fontWeight: FontWeight.bold),))
          ],
