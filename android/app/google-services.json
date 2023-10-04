@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "816521819994",
+    "project_id": "dating-daf3a",
+    "storage_bucket": "dating-daf3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816521819994:android:32a44d626d80f70d66e563",
+        "android_client_info": {
+          "package_name": "com.example.dating_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx683ozMtBPYfbaM-GJYD3YX3rNysCq3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

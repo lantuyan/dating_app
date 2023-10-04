@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +13,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final numberController = TextEditingController();
     return SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -27,6 +29,7 @@ class Body extends StatelessWidget {
               const SizedBox(height: 30,),
 
               IntlPhoneField(
+                controller: numberController,
                 decoration: InputDecoration(
                   labelText: "Phone Number",
                   border: OutlineInputBorder(
@@ -39,7 +42,14 @@ class Body extends StatelessWidget {
 
               const SizedBox(height: 30,),
 
-              MyButton(onTap: (){
+              MyButton(
+                onTap: ()async {
+                // if(numberController.text.isNotEmpty){
+                  // await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  //     email: 'abc@gmail.com',
+                  //     password: '123456'
+                  // );
+                // }
                 tabController.animateTo(tabController.index +1);
               }, textMy: 'Continue'),
             ],

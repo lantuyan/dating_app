@@ -8,6 +8,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   ServiceLocatorInitializer.initWithFlavor(AppFlavor.staging);
+  
 
   bootstrap();
 }
