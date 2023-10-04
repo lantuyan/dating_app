@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../blocs/authentication/authentication_cubit.dart';
 import '../common/error_screen.dart';
+import '../screens/signin/sign_in_screen.dart';
 import '../screens/signup/auth_screen.dart';
 import '../screens/home/user_profile/user_profile_screen.dart';
 import '../screens/main_screen.dart';
@@ -14,6 +15,7 @@ abstract class NavigationPath {
 
   static const onboardingScreen = '/onboarding';
   static const signupScreen = '/signup';
+  static const signinScreen = '/signin';
   static const homeScreen = '/homeScreen';
   static const mainScreen = '/:tab';
   static const userProfileScreen = 'userProfile/:id';
@@ -49,7 +51,11 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: NavigationPath.signupScreen,
-        builder: (_, __) => const AuthScreen(),
+        builder: (_, __) => const SignUp(),
+      ),
+      GoRoute(
+        path: NavigationPath.signinScreen,
+        builder: (_, __) => const SignIn(),
       ),
       GoRoute(
         name: 'main',

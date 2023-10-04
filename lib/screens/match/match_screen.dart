@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,9 @@ class MatchScreen extends StatelessWidget {
     final inactiveMatches = UserMatch.matches
         .where((match) => match.userId == 1 && match.chat!.isEmpty)
         .toList();
-    print('${inactiveMatches.length.toString()} is inactive matches');
+    // print('${inactiveMatches.length.toString()} is inactive matches');
+
+    // ignore: unused_local_variable
     final activeMatches = UserMatch.matches
         .where((match) => match.userId == 1 && match.chat!.isNotEmpty)
         .toList();
@@ -25,7 +26,7 @@ class MatchScreen extends StatelessWidget {
 
     for (final match in inactiveMatches) {
       final day = DateTime.now().difference(match.date).inDays;
-      print('day is $day');
+      // print('day is $day');
 
       if (previousDay != day) {
         // Add a "dayLine" when the day changes.
