@@ -22,7 +22,7 @@ class _BodyState extends State<Body> {
     final tabController = widget.tabController;
     DateTime today = DateTime.now();
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.only(left: 40, right: 40, top: 20, bottom: 40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -143,9 +143,6 @@ class _BodyState extends State<Body> {
               tabController.animateTo(tabController.index +1);
             },
             textMy: 'Confirm',
-          ),
-          const SizedBox(
-            height: 20,
           ),
         ],
       ),

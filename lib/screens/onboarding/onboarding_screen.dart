@@ -6,12 +6,17 @@ class Onboarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+    return const Scaffold(
+      appBar: PreferredSize(
+          preferredSize: Size(0, 96),
+          child: Padding(
+            padding: EdgeInsets.only(left: 40, right: 40, top: 40),
+          ),
       ),
-      body: Center(child: Body()),
+      body: Padding(
+        padding: EdgeInsets.only(bottom: 40),
+        child: Body(),
+      ),
     );
   }
 }
