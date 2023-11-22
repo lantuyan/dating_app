@@ -12,6 +12,8 @@ class ChatScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 40, top: 40),
           child: AppBar(
+            backgroundColor: Colors.transparent,
+            scrolledUnderElevation: 0,
              title: Text('Messages',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),),
             actions: const [
               FilterButton(),

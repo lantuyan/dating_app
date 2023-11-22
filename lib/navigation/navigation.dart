@@ -1,8 +1,11 @@
+import 'package:dating_app/screens/photofull/photo_fullscreen.dart';
+import 'package:dating_app/screens/stories/stories_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../blocs/authentication/authentication_cubit.dart';
 import '../common/error_screen.dart';
+import '../screens/settings/setting_screen.dart';
 import '../screens/signin/sign_in_screen.dart';
 import '../screens/signup/auth_screen.dart';
 import '../screens/home/user_profile/user_profile_screen.dart';
@@ -20,6 +23,10 @@ abstract class NavigationPath {
   static const mainScreen = '/:tab';
   static const userProfileScreen = 'userProfile/:id';
 
+  static const storiesScreen = '/stories';
+  static const photofullScreen = '/photofull';
+  static const settingScreen = '/settings';
+
 }
 
 abstract class AppRouter {
@@ -27,7 +34,7 @@ abstract class AppRouter {
 
   static final routerConfig = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: NavigationPath.onboardingScreen,
+    initialLocation: NavigationPath.photofullScreen,
     // initialLocation: NavigationPath.homeScreen,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
@@ -57,6 +64,27 @@ abstract class AppRouter {
         path: NavigationPath.signinScreen,
         builder: (_, __) => const SignIn(),
       ),
+
+      //stories
+      GoRoute(
+        path: NavigationPath.storiesScreen,
+        builder: (_, __) => const StoriesScreen(),
+      ),
+
+      //stories
+
+      //photo full
+      GoRoute(
+        path: NavigationPath.photofullScreen,
+        builder: (_, __) => const PhotoFullScreen(),
+      ),
+      //photo full
+
+      //settings
+      GoRoute(
+        path: NavigationPath.settingScreen,
+        builder: (_, __) => const SettingScreen(),
+      ),//
       GoRoute(
         name: 'main',
         path: NavigationPath.mainScreen,
@@ -80,7 +108,7 @@ abstract class AppRouter {
           ),
         ],
       ),
-       
+
     ],
     errorBuilder: (_, __) => const ErrorScreen(),
   );
