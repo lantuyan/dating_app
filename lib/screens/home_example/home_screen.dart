@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../blocs/authentication/authentication_cubit.dart';
+import '../../blocs/authentication_example/authentication_cubit.dart';
 import '../../l10n/l10n.dart';
 import '../../models/dtos/city.dart';
 import '../../navigation/navigation.dart';
