@@ -15,23 +15,25 @@ const String authDioInstance = 'auth_dio';
 const String noAuthDioInstance = 'no_auth_dio';
 
 Future<void> bootstrap() async {
-  final logger = ServiceLocator.inject<Logger>();
-  FlutterError.onError = (FlutterErrorDetails details) {
-    logger(details.exceptionAsString(), stackTrace: details.stack);
-  };
+  // final logger = ServiceLocator.inject<Logger>();
+  // FlutterError.onError = (FlutterErrorDetails details) {
+  //   logger(details.exceptionAsString(), stackTrace: details.stack);
+  // };
 
-  EquatableConfig.stringify = true;
+  // EquatableConfig.stringify = true;
   Bloc.observer = AppBlocObserver();
 
-  ErrorWidget.builder = (details) => ErrorScreen(details: details);
-  HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: await getApplicationSupportDirectory(),
-  );
+  // ErrorWidget.builder = (details) => ErrorScreen(details: details);
+  // HydratedBloc.storage = await HydratedStorage.build(
+  //   storageDirectory: await getApplicationSupportDirectory(),
+  // );
 
-  runZonedGuarded(
-    () => runApp(const App()),
-    (Object error, StackTrace stackTrace) {
-      logger(error.toString(), stackTrace: stackTrace);
-    },
-  );
+  // runZonedGuarded(
+  //   () => runApp(const App()),
+  //   (Object error, StackTrace stackTrace) {
+  //     logger(error.toString(), stackTrace: stackTrace);
+  //   },
+  // );
+
+  runZoned(() => runApp(const App()));
 }
