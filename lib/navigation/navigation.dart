@@ -1,3 +1,4 @@
+import 'package:dating_app/screens/filter/filtter_screen.dart';
 import 'package:dating_app/screens/photofull/photo_fullscreen.dart';
 import 'package:dating_app/screens/stories/stories_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +12,7 @@ import '../screens/signup/auth_screen.dart';
 import '../screens/home/user_profile/user_profile_screen.dart';
 import '../screens/main_screen.dart';
 import '../screens/onboarding/onboarding_screen.dart';
+import '../screens/splash/splash_screen.dart';
 abstract class NavigationPath {
   NavigationPath._();
   static const login = '/login';
@@ -27,6 +29,9 @@ abstract class NavigationPath {
   static const photofullScreen = '/photofull';
   static const settingScreen = '/settings';
 
+  static const filtterScreen = '/filtter';
+  static const splashScreen = '/splash';
+
 }
 
 abstract class AppRouter {
@@ -34,7 +39,7 @@ abstract class AppRouter {
 
   static final routerConfig = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: NavigationPath.photofullScreen,
+    initialLocation: NavigationPath.splashScreen,
     // initialLocation: NavigationPath.homeScreen,
     redirect: (context, _) {
       if (context.read<AuthenticationCubit>().state) {
@@ -52,6 +57,10 @@ abstract class AppRouter {
       //   path: NavigationPath.login,
       //   builder: (_, __) => const LoginScreen(),
       // ),
+      GoRoute(
+        path: NavigationPath.splashScreen,
+        builder: (_, __) => const SplashScreen(),
+      ),
       GoRoute(
         path: NavigationPath.onboardingScreen,
         builder: (_, __) => const Onboarding(),
@@ -85,6 +94,13 @@ abstract class AppRouter {
         path: NavigationPath.settingScreen,
         builder: (_, __) => const SettingScreen(),
       ),//
+
+      //filtter
+      GoRoute(
+        path: NavigationPath.filtterScreen,
+        builder: (_, __) => const FiltterScreen(),
+      ),
+      //
       GoRoute(
         name: 'main',
         path: NavigationPath.mainScreen,

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../theme/color_schemes.dart';
 
-class MessageMic extends StatelessWidget {
-  const MessageMic({Key? key}) : super(key: key);
+class MessageSent extends StatelessWidget {
+  final VoidCallback onPress;
+  const MessageSent({Key? key, required this.onPress, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +16,12 @@ class MessageMic extends StatelessWidget {
             color: borderColor,
             width: 2.0,
           )),
-      child: IconButton(
-        icon: const Icon(
-          Icons.mic_sharp,
-          color: redColor,
-          size: 25,
-        ),
-        color: redColor,
-        onPressed: () {
-        },
+      child: MaterialButton(
+        onPressed: () =>onPress,
+        minWidth: 0,
+        color: Colors.lightGreen,
+        padding: const EdgeInsets.only(top: 10, bottom: 10, right: 5, left: 10),
+        child: Icon(Icons.send, color: Colors.white, size: 28,),
       ),
     );
   }

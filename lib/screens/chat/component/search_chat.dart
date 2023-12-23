@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SearchChat extends StatelessWidget {
-  const SearchChat({Key? key}) : super(key: key);
+class SearchChat extends StatefulWidget {
+  final Function(String) onChanged;
+  const SearchChat({required this.onChanged});
 
+  @override
+  State<SearchChat> createState() => _SearchChatState();
+}
+
+class _SearchChatState extends State<SearchChat> {
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -22,6 +28,7 @@ class SearchChat extends StatelessWidget {
               borderRadius: BorderRadius.circular(20)
           )
       ),
+      onChanged: widget.onChanged,
     );
   }
 }

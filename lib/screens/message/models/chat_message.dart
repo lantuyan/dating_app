@@ -1,69 +1,38 @@
-enum ChatMessageType { text, audio, image, video }
-enum MessageStatus { not_sent, not_view, viewed }
-
 class ChatMessage {
-  final String text;
-  final String time;
-  final ChatMessageType messageType;
-  final MessageStatus messageStatus;
-  final bool isSender;
-
   ChatMessage({
-    this.text = '',
-    this.time= '',
-    required this.messageType,
-    required this.messageStatus,
-    required this.isSender,
+    required this.msg,
+    required this.read,
+    required this.toId,
+    required this.type,
+    required this.fromId,
+    required this.sent,
   });
+  late final String msg;
+  late final String read;
+  late final String toId;
+  late final Type type;
+  late final String fromId;
+  late final String sent;
+
+  ChatMessage.fromJson(Map<String, dynamic> json){
+    msg = json['msg'].toString();
+    read = json['read'].toString();
+    toId = json['toId'].toString();
+    type = json['type'].toString() == Type.image.name ? Type.image : Type.text;
+    fromId = json['fromId'].toString();
+    sent = json['sent'].toString();
+  }
+
+  Map<String, dynamic> toJson() {
+    final data = <String, dynamic>{};
+    data['msg'] = msg;
+    data['read'] = read;
+    data['toId'] = toId;
+    data['type'] = type.name;
+    data['fromId'] = fromId;
+    data['sent'] = sent;
+    return data;
+  }
 }
 
-List demeChatMessages = [
-  ChatMessage(
-    text: "Hi Sajol,",
-    time: '2:55 PM',
-    messageType: ChatMessageType.text,
-    messageStatus: MessageStatus.viewed,
-    isSender: false,
-  ),
-  ChatMessage(
-    text: "Hello, How are you?",
-    time: '2:55 PM',
-    messageType: ChatMessageType.text,
-    messageStatus: MessageStatus.viewed,
-    isSender: true,
-  ),
-  ChatMessage(
-    text: "",
-    time: '2:55 PM',
-    messageType: ChatMessageType.audio,
-    messageStatus: MessageStatus.viewed,
-    isSender: false,
-  ),
-  ChatMessage(
-    text: "",
-    time: '2:55 PM',
-    messageType: ChatMessageType.video,
-    messageStatus: MessageStatus.viewed,
-    isSender: true,
-  ),
-  ChatMessage(
-    text: "Error happend",
-    messageType: ChatMessageType.text,
-    messageStatus: MessageStatus.not_sent,
-    isSender: true,
-  ),
-  ChatMessage(
-    text: "This looks great man!!",
-    time: '2:55 PM',
-    messageType: ChatMessageType.text,
-    messageStatus: MessageStatus.viewed,
-    isSender: false,
-  ),
-  ChatMessage(
-    text: "Glad you like it",
-    time: '2:55 PM',
-    messageType: ChatMessageType.text,
-    messageStatus: MessageStatus.not_view,
-    isSender: true,
-  ),
-];
+enum Type{ text , image}

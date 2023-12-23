@@ -63,6 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '816521819994',
     projectId: 'dating-daf3a',
     storageBucket: 'dating-daf3a.appspot.com',
+    androidClientId: '816521819994-7es6cajq9bbqmg9in66a19rh2p69fevt.apps.googleusercontent.com',
+    iosClientId: '816521819994-vnkdgjr0u9rbvhjqekgm2brn8ksbc06c.apps.googleusercontent.com',
     iosBundleId: 'com.example.datingApp',
   );
 }

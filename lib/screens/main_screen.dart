@@ -1,11 +1,15 @@
+import 'package:dating_app/apis/api.dart';
+import 'package:dating_app/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../navigation/navigation.dart';
 import '../theme/color_schemes.dart';
 import 'chat/chat_screen.dart';
 import 'home/home_screen.dart';
 import 'match/match_screen.dart';
+import 'signup/auth.dart';
 
 class MainScreen extends StatefulWidget {
 
@@ -20,6 +24,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     MatchScreen(),
     ChatScreen(),
+    Profile(),
    // SettingScreen(),
   ];
   @override

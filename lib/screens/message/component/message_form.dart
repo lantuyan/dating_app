@@ -2,25 +2,60 @@ import 'package:dating_app/theme/color_schemes.dart';
 import 'package:flutter/material.dart';
 
 class MessageForm extends StatelessWidget {
-  const MessageForm({Key? key}) : super(key: key);
+  final controller ;
+  final Function()? onPressEmoji;
+  final Function()? onPressField;
+  final Function()? onPressImg;
+  final Function()? onPressCamera;
+  const MessageForm({
+    required this.controller,
+    required this.onPressEmoji,
+    required this.onPressField,
+    required this.onPressImg,
+    required this.onPressCamera,}) ;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          hintText: 'Your message',
-          hintStyle: TextStyle(fontSize: 14),
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: borderColor,),
-              borderRadius: BorderRadius.circular(20)
+    return Row(
+      children: [
+        //emoji button
+        IconButton(
+          onPressed: onPressEmoji,
+          icon: const Icon(
+            Icons.emoji_emotions,
+            color: Colors.blueAccent,
           ),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey.shade600),
-              borderRadius: BorderRadius.circular(20)
+        ),
+        //Text field
+        Expanded(child: TextField(
+          controller: controller as TextEditingController,
+          keyboardType: TextInputType.multiline,
+          onTap: onPressField,
+          maxLines: null,
+          decoration: const InputDecoration(
+            hintText: 'Type Something...',
+            hintStyle: TextStyle(color: Colors.blueAccent),
+            border: InputBorder.none,
           ),
-        suffixIcon: Image.asset('assets/icons/Stroke.png')
-      ),
+        )),
+
+        //pick image from gallery button
+        IconButton(
+          onPressed: onPressImg,
+          icon: const Icon(
+            Icons.image,
+            color: Colors.blueAccent,
+          ),
+        ),
+        //take image from camera button
+        IconButton(
+          onPressed: onPressCamera,
+          icon: const Icon(
+            Icons.camera,
+            color: Colors.blueAccent,
+          ),
+        ),
+      ],
     );
   }
 }
