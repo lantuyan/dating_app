@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../theme/color_schemes.dart';
-import '../widgets/widgets.dart';
+import '../../../../theme/color_schemes.dart';
+import '../../widgets/widgets.dart';
 
 class GenderScreen extends StatefulWidget {
   final TabController tabController;

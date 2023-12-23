@@ -14,7 +14,8 @@ import '../l10n/example/example_repository.dart';
 import '../l10n/l10n.dart';
 import '../navigation/navigation.dart';
 import '../screens/home/home_screen.dart';
-import '../screens/signin/sign_in_screen.dart';
+import '../screens/onboarding/onboarding_screen.dart';
+import '../screens/signin/phone/sign_in_screen.dart';
 import '../screens/splash/splash_screen.dart';
 import '../theme/theme.dart';
 
@@ -64,45 +65,47 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return SafeArea(
-    //   child: MaterialApp.router(
-    //     debugShowCheckedModeBanner: false,
-    //     theme: AppTheme.light,
-    //     darkTheme: AppTheme.dark,
-    //     localizationsDelegates: AppLocalizations.localizationsDelegates,
-    //     supportedLocales: AppLocalizations.supportedLocales,
-    //     routerConfig: AppRouter.routerConfig,
-
-    //   ),
-    // );
-
     return SafeArea(
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        home: const BlocNavigate(),
+        routerConfig: AppRouter.routerConfig,
+
       ),
     );
   }
 }
 
-class BlocNavigate extends StatelessWidget {
-  const BlocNavigate({super.key});
+//     return SafeArea(
+//       child: MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         theme: AppTheme.light,
+//         darkTheme: AppTheme.dark,
+//         localizationsDelegates: AppLocalizations.localizationsDelegates,
+//         supportedLocales: AppLocalizations.supportedLocales,
+//         home: const BlocNavigate(),
+//       ),
+//     );
+//   }
+// }
 
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<AuthenticationBloc, AuthenticationState>(
-      builder: (context, state) {
-        if (state is AuthenticationSuccess) {
-          return const HomeView();
-        } else {
-          // return const WelcomeView();
-          return SplashScreen();
-        }
-      },
-    );
-  }
-}
+// class BlocNavigate extends StatelessWidget {
+//   const BlocNavigate({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+//       builder: (context, state) {
+//         if (state is AuthenticationSuccess) {
+//           return const HomeView();
+//         } else {
+//           return const Onboarding();
+
+//         }
+//       },
+//     );
+//   }
+// }

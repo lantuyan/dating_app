@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../navigation/navigation.dart';
-import '../../../theme/color_schemes.dart';
-import '../widgets/widgets.dart';
+import '../../../../navigation/navigation.dart';
+import '../../../../theme/color_schemes.dart';
+import '../../widgets/widgets.dart';
 
 class NotificationScreen extends StatelessWidget {
   final TabController tabController;

@@ -1,3 +1,4 @@
+import 'package:dating_app/screens/signup/email/sign_up_view.dart';
 import 'package:dating_app/screens/signup/signup/component/square_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -24,7 +25,14 @@ class Body extends StatelessWidget {
             const SizedBox(height: 20,),
              Padding(
                padding: const EdgeInsets.symmetric(horizontal: 10),
-               child: MyButton(onTap: (){}, textMy: 'Contiune with email'),
+               child: MyButton(
+                onTap: (){
+                   Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpView()),
+                      );
+               }, textMy: 'Contiune with email'),
              ),
             const SizedBox(height: 30,),
             PhoneButton(onTap: (){

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 class Constants {
   //colors
   static const kPrimaryColor = Color(0xFFFFFFFF);
+  static const kRedColor = Color(0xffE94057);
   static const kGreyColor = Color(0xFFEEEEEE);
   static const kBlackColor = Color(0xFF000000);
   static const kDarkGreyColor = Color(0xFF9E9E9E);

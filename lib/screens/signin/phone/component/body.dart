@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../navigation/navigation.dart';
-import '../../../theme/color_schemes.dart';
+import '../../../../navigation/navigation.dart';
+import '../../../../theme/color_schemes.dart';
+import '../../../signup/phone/auth_screen.dart';
 import 'divider_signin.dart';
 import 'my_textfiled.dart';
 import 'square_tile.dart';
@@ -49,9 +50,12 @@ class Body extends StatelessWidget {
                       const SizedBox(width: 10,),
                       GestureDetector(
                         onTap: () {
-                          context.go(NavigationPath.signupScreen);
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SignUpWithPhone()),
+                            );
                         },
-                        child: Text('Sign Up', style: TextStyle(color: redColor, fontWeight: FontWeight.w500),),
+                        child: const Text('Sign Up', style: TextStyle(color: redColor, fontWeight: FontWeight.w500),),
                       )
                     ],
                   ),

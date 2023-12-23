@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/skip_button.dart';
+import '../../widgets/skip_button.dart';
 import 'component/body.dart';
 
 class ProfileScreen extends StatelessWidget {

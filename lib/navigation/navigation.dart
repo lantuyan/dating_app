@@ -1,10 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../blocs/authentication/bloc/authentication_bloc.dart';
 import '../blocs/authentication_example/authentication_cubit.dart';
+import '../blocs/welcome_view.dart';
 import '../common/error_screen.dart';
-import '../screens/signin/sign_in_screen.dart';
-import '../screens/signup/auth_screen.dart';
+import '../screens/signin/phone/sign_in_screen.dart';
+import '../screens/signup/phone/auth_screen.dart';
 import '../screens/home/user_profile/user_profile_screen.dart';
 import '../screens/main_screen.dart';
 import '../screens/onboarding/onboarding_screen.dart';
@@ -14,6 +16,8 @@ abstract class NavigationPath {
   NavigationPath._();
   static const login = '/login';
   static const home = '/home';
+
+  static const welcome = '/welcome';
 
   static const splashScreen = '/splashScreen';
   static const onboardingScreen = '/onboarding';
@@ -31,13 +35,31 @@ abstract class AppRouter {
     debugLogDiagnostics: true,
     initialLocation: NavigationPath.splashScreen,
     // initialLocation: NavigationPath.homeScreen,
-    redirect: (context, _) {
-      if (context.read<AuthenticationCubit>().state) {
-        return NavigationPath.mainScreen.replaceFirst(':tab', '0');
-      } else {
-        return null;
-      }
-    },
+    // redirect: (context, _) {
+    //   // if (context.read<AuthenticationCubit>().state) {
+    //   //   return NavigationPath.mainScreen.replaceFirst(':tab', '0');
+    //   // } else {
+    //   //   return null;
+    //   // }
+    //   if (context.read<AuthenticationBloc>().state is AuthenticationSuccess) {
+    //     print("authen success");
+    //     return NavigationPath.mainScreen.replaceFirst(':tab', '0');
+    //     // return const HomeView();
+    //   } else {
+    //     // return const WelcomeView();
+    //     return NavigationPath.onboardingScreen;
+    //   }
+    // },
+    
+    redirect: (context, state) {
+      final authenticationState = context.read<AuthenticationBloc>().state;
+
+          if (authenticationState is AuthenticationSuccess) {
+            return NavigationPath.mainScreen.replaceFirst(':tab', '0');
+          } else {
+            return NavigationPath.onboardingScreen;
+          }
+        },
     routes: [
       // GoRoute(
       //   path: NavigationPath.home,
@@ -48,8 +70,12 @@ abstract class AppRouter {
       //   builder: (_, __) => const LoginScreen(),
       // ),
       GoRoute(
+        path: NavigationPath.welcome,
+        builder: (_, __) => const WelcomeView(),
+      ),
+      GoRoute(
         path: NavigationPath.splashScreen,
-        builder: (_, __) =>  SplashScreen(),
+        builder: (_, __) => SplashScreen(),
       ),
       GoRoute(
         path: NavigationPath.onboardingScreen,
@@ -57,7 +83,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: NavigationPath.signupScreen,
-        builder: (_, __) => const SignUp(),
+        builder: (_, __) => const SignUpWithPhone(),
       ),
       GoRoute(
         path: NavigationPath.signinScreen,

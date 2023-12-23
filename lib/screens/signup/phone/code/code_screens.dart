@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/widgets.dart';
+import '../../widgets/widgets.dart';
 import 'component/body.dart';
 
 class CodeScreen extends StatelessWidget {

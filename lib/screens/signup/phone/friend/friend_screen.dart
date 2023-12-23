@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../theme/color_schemes.dart';
-import '../widgets/widgets.dart';
+import '../../../../theme/color_schemes.dart';
+import '../../widgets/widgets.dart';
 
 class FriendScreen extends StatelessWidget {
   final TabController tabController;

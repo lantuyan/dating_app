@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../screens/home/home_screen.dart';
-import '../authentication/bloc/authentication_bloc.dart';
-import '../database/home_view.dart';
-import 'bloc/form_bloc.dart';
-import '../welcome_view.dart';
+import '../../home/home_screen.dart';
+import '../../../blocs/authentication/bloc/authentication_bloc.dart';
+import '../../../blocs/database/home_view.dart';
+import '../../../blocs/from-validation/bloc/form_bloc.dart';
+import '../../../blocs/welcome_view.dart';
+import '../../onboarding/onboarding_screen.dart';
+import '../../signin/phone/sign_in_screen.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -48,11 +50,11 @@ class SignUpView extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset("assets/images/sign-in.png"),
+                      Image.asset("assets/icons/tinder.png",width: 100, height: 100),
                       const Text("Sign Up",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Color(0xffE94057),
                             fontWeight: FontWeight.bold,
                             fontSize: 30.0,
                           )),
@@ -231,9 +233,9 @@ class _SubmitButton extends StatelessWidget {
                   child: const Text("Sign Up"),
                   style: ButtonStyle(
                       foregroundColor: MaterialStateProperty.all<Color>(
-                          Theme.of(context).primaryColor),
+                          Colors.white),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          Theme.of(context).primaryColor.withOpacity(0.1)),
+                          const Color(0xffE94057)),
                       side: MaterialStateProperty.all<BorderSide>(
                           BorderSide.none)),
                 ),
@@ -250,16 +252,21 @@ class ErrorDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text("Error"),
+      title: const Text(
+        "Alert",
+        style: TextStyle(color: Color(0xffE94057)),
+      ),
       content: Text(errorMessage!),
       actions: [
         TextButton(
           child: const Text("Ok"),
           onPressed: () => errorMessage!.contains("Please Verify your email")
-              ? Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => const WelcomeView()),
-                  (Route<dynamic> route) => false)
-              : Navigator.of(context).pop(),
+              ? Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const Onboarding()),
+              )
+              : Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const SignIn()),
+                ),
         )
       ],
     );

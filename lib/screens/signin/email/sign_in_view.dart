@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../screens/home/home_screen.dart';
-import '../constant.dart';
-import '../database/home_view.dart';
-import '../from-validation/bloc/form_bloc.dart';
-import '../from-validation/sign_up_view.dart';
-import 'bloc/authentication_bloc.dart';
+import '../../home/home_screen.dart';
+import '../../../common/constant/constant.dart';
+import '../../../blocs/database/home_view.dart';
+import '../../../blocs/from-validation/bloc/form_bloc.dart';
+import '../../signup/email/sign_up_view.dart';
+import '../../../blocs/authentication/bloc/authentication_bloc.dart';
 
 OutlineInputBorder border = const OutlineInputBorder(
     borderSide: BorderSide(color: Constants.kBorderColor, width: 3.0));
 
-class SignInView extends StatelessWidget {
-  const SignInView({Key? key}) : super(key: key);
+class SignInWithEmail extends StatelessWidget {
+  const SignInWithEmail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class SignInView extends StatelessWidget {
               child: SingleChildScrollView(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Image.asset("assets/images/sign-in.png"),
+              Image.asset("assets/icons/tinder.png",width: 100, height:100 ),
               RichText(
                   textAlign: TextAlign.center,
                   text: const TextSpan(children: <TextSpan>[
@@ -180,7 +180,7 @@ class _SubmitButton extends StatelessWidget {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           Constants.kPrimaryColor),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          Constants.kBlackColor),
+                          Color(0xffE94057),),
                       side: MaterialStateProperty.all<BorderSide>(
                           BorderSide.none)),
                 ),
@@ -216,7 +216,7 @@ class _SignInNavigate extends StatelessWidget {
               text: Constants.textSignUp,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Constants.kDarkBlueColor,
+                color: Constants.kRedColor,
               )),
         ]));
   }

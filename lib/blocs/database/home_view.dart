@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../screens/onboarding/onboarding_screen.dart';
 import '../authentication/bloc/authentication_bloc.dart';
-import '../constant.dart';
+import '../../common/constant/constant.dart';
 import '../welcome_view.dart';
 import 'bloc/database_bloc.dart';
 
@@ -16,7 +17,7 @@ class HomeView extends StatelessWidget {
       listener: (context, state) {
         if (state is AuthenticationFailure) {
           Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (context) => const WelcomeView()),
+              MaterialPageRoute(builder: (context) => const Onboarding()),
               (Route<dynamic> route) => false);
         }
       },

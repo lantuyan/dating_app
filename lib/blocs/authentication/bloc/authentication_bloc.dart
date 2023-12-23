@@ -16,6 +16,7 @@ class AuthenticationBloc
       : super(AuthenticationInitial()) {
     on<AuthenticationEvent>((event, emit) async {
       if (event is AuthenticationStarted) {
+        print("authen started");
         UserModel user = await _authenticationReposistory.getCurrentUser().first;
         if (user.uid != "uid") {
           String? displayName = await _authenticationReposistory.retrieveUserName(user);

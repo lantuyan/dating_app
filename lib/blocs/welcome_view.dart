@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'authentication/sign_in_view.dart';
-import 'constant.dart';
-import 'from-validation/sign_up_view.dart';
+import '../screens/signin/email/sign_in_view.dart';
+import '../common/constant/constant.dart';
+import '../screens/signup/email/sign_up_view.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({Key? key}) : super(key: key);
@@ -57,7 +57,7 @@ class WelcomeView extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SignInView()),
+                            builder: (context) => const SignInWithEmail()),
                       );
                     },
                     child: const Text(Constants.textStart),

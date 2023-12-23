@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-import '../../widgets/confirm_button.dart';
-import '../../widgets/my_button.dart';
+import '../../../widgets/confirm_button.dart';
+import '../../../widgets/my_button.dart';
 import 'choose.dart';
 import 'profile_form.dart';
 import 'profile_pic.dart';

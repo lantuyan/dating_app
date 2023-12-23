@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'auth.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class SignUpWithPhone extends StatelessWidget {
+  const SignUpWithPhone({super.key});
 
   static const List<Tab> tabs = <Tab>[
     Tab(text: 'Sign Up'),
