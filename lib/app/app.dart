@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/authentication/bloc/authentication_bloc.dart';
-import '../blocs/authentication/bloc/authentication_repository.dart';
+import '../domain/repositories/auth/authentication_repository.dart';
 import '../blocs/database/bloc/database_bloc.dart';
-import '../blocs/database/database_repository_impl.dart';
+import '../domain/repositories/database/database_repository_impl.dart';
 import '../blocs/database/home_view.dart';
 import '../blocs/from-validation/bloc/form_bloc.dart';
 import '../blocs/welcome_view.dart';
-import '../di/service_locator.dart';
-import '../domain/repositories/example_repository.dart';
+import '../di/example/service_locator.dart';
+import '../l10n/example/example_repository.dart';
 import '../l10n/l10n.dart';
 import '../navigation/navigation.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/signin/sign_in_screen.dart';
+import '../screens/splash/splash_screen.dart';
 import '../theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -98,7 +99,8 @@ class BlocNavigate extends StatelessWidget {
         if (state is AuthenticationSuccess) {
           return const HomeView();
         } else {
-          return const WelcomeView();
+          // return const WelcomeView();
+          return SplashScreen();
         }
       },
     );

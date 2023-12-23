@@ -1,7 +1,7 @@
 
 
-import '../authentication/bloc/user_model.dart';
-import 'database_service.dart';
+import '../../../blocs/authentication/bloc/user_model.dart';
+import '../../../blocs/database/database_service.dart';
 
 class DatabaseRepositoryImpl implements DatabaseRepository {
   DatabaseService service = DatabaseService();

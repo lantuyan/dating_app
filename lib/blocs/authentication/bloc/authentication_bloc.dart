@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'authentication_repository.dart';
+import '../../../domain/repositories/auth/authentication_repository.dart';
 import 'user_model.dart';
 
 part 'authentication_event.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../common/logger/logger.dart';
-import '../di/service_locator.dart';
+import '../di/example/service_locator.dart';
 
 class AppBlocObserver extends BlocObserver {
   // final _logger = ServiceLocator.inject<Logger>();

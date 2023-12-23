@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../../database/database_service.dart';
-import 'authentication_service.dart';
-import 'user_model.dart';
+import '../../../blocs/database/database_service.dart';
+import '../../../di/auth/authentication_service.dart';
+import '../../../blocs/authentication/bloc/user_model.dart';
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
   AuthenticationService service = AuthenticationService();

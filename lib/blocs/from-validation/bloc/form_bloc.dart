@@ -3,9 +3,9 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../authentication/bloc/authentication_repository.dart';
+import '../../../domain/repositories/auth/authentication_repository.dart';
 import '../../authentication/bloc/user_model.dart';
-import '../../database/database_repository_impl.dart';
+import '../../../domain/repositories/database/database_repository_impl.dart';
 
 part 'form_event.dart';
 part 'form_state.dart';

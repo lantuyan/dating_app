@@ -9,7 +9,7 @@ import 'app/app.dart';
 import 'app/app_bloc_observer.dart';
 import 'common/error_screen.dart';
 import 'common/logger/logger.dart';
-import 'di/service_locator.dart';
+import 'di/example/service_locator.dart';
 
 const String authDioInstance = 'auth_dio';
 const String noAuthDioInstance = 'no_auth_dio';
@@ -35,5 +35,6 @@ Future<void> bootstrap() async {
   //   },
   // );
 
-  runZoned(() => runApp(const App()));
+  // runZoned(() => runApp(const App()));
+  runApp(const App());
 }

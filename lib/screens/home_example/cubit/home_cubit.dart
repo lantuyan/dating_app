@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../domain/repositories/example_repository.dart';
+import '../../../l10n/example/example_repository.dart';
 import '../../../models/dtos/city.dart';
 
 class HomeCubit extends Cubit<List<City>> {

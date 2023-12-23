@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../authentication/bloc/user_model.dart';
-import '../database_repository_impl.dart';
+import '../../../domain/repositories/database/database_repository_impl.dart';
 
 
 
