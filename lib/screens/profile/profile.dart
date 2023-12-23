@@ -166,6 +166,20 @@ class _ProfileState extends State<Profile> {
 
                         ),
                       ),
+                      TextFormField(
+                        initialValue: _users.age,
+                        onSaved: (val) => APIs.me.age = val ?? '',
+                        validator: (val) => val != null && val.isNotEmpty ? null : 'Required Field',
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.person, color: Colors.blue,),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12)
+                          ),
+                          hintText: 'eg. Feeling Happy',
+                          label:Text("Age"),
+
+                        ),
+                      ),
                       SizedBox(height: size.height * .02,),
                       ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(shape: StadiumBorder(), maximumSize: Size(size.width * .5, size.height* .06 )),
@@ -236,7 +250,7 @@ class _ProfileState extends State<Profile> {
                         }
 
                       },
-                      child: Image.asset("images/add_image.png")
+                      child: Image.asset("assets/images/add_image.png")
                   ),
                   //take picture from camera button
                   ElevatedButton(
@@ -260,7 +274,7 @@ class _ProfileState extends State<Profile> {
                           Navigator.pop(context);
                         }
                       },
-                      child: Image.asset("images/add_image.png")
+                      child: Image.asset("assets/images/camera.png")
                   )
                 ],
               )

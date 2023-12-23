@@ -9,6 +9,8 @@ class ChatUsers {
     required this.id,
     required this.pushToken,
     required this.email,
+    required this.age,
+    required this.isVerified,
   });
   late  String image;
   late  String about;
@@ -19,6 +21,8 @@ class ChatUsers {
   late  String id;
   late  String pushToken;
   late  String email;
+  late  String age;
+  late  bool isVerified;
 
   ChatUsers.fromJson(Map<String, dynamic> json){
     image = json['image']  as String;
@@ -30,6 +34,8 @@ class ChatUsers {
     id = json['id'] as String;
     pushToken = json['push_token'] as String;
     email = json['email'] as String;
+    age = json['age'] as String;
+    isVerified = json['isVerified'] as bool;
   }
 
   Map<String, dynamic> toJson() {
@@ -43,6 +49,8 @@ class ChatUsers {
     data['id'] = id;
     data['push_token'] = pushToken;
     data['email'] = email;
+    data['age'] = age;
+    data['isVerified'] = isVerified;
     return data;
   }
 }

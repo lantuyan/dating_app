@@ -61,10 +61,13 @@ class APIs {
       isOnline: false,
       lastActive: time,
       pushToken: '',
+      age: '18',
+      isVerified: false,
     );
     return await firestore.collection('users').doc(user.uid).set(chatUser.toJson());
 
   }
+//usermatched
 
   //for getting all user from users from firestores database
   static Stream<QuerySnapshot<Map<String, dynamic>>> getAllUser(){
@@ -78,7 +81,8 @@ class APIs {
   static Future<void> updateUserInfo() async{
     await firestore.collection('users').doc(user.uid).update({
       'name': me.name,
-      'about': me.about
+      'about': me.about,
+      'age': me.age,
     });
   }
 
