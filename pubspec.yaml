@@ -17,7 +17,7 @@ dependencies:
   flutter_bloc: ^8.1.2
   hydrated_bloc: ^9.1.0
   path_provider: ^2.0.12
-  go_router: ^6.0.9
+  go_router: ^13.0.0
 
   # Service Locator
   get_it: ^7.2.0
@@ -26,7 +26,7 @@ dependencies:
   dio: ^5.0.0
 
   # Logging
-  logger: ^1.1.0
+  logger: ^2.0.2+1
 
   # Freezed
   freezed_annotation: ^2.2.0
@@ -41,7 +41,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   json_annotation: ^4.8.0
   smooth_page_indicator: ^1.1.0
-  percent_indicator: ^3.4.0
+  percent_indicator: ^4.2.3
   google_fonts:
   intl_phone_field: ^3.1.0
   flutter_svg: ^2.0.7
@@ -49,6 +49,19 @@ dependencies:
 
   firebase_core: ^2.0.0
   firebase_auth: ^4.0.0
+
+  # add
+  step_progress_indicator: ^1.0.0
+  firebase_storage: ^11.5.6
+  image_picker: ^1.0.5
+  cloud_firestore: ^4.13.6
+  uuid: ^4.2.2
+  rxdart: ^0.27.2
+  google_maps_flutter: ^2.0.9
+  geolocator: ^10.1.0
+  formz: ^0.4.1
+  form_inputs:
+    path: packages/form_inputs
 
 
 dev_dependencies:
@@ -60,7 +73,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.1
+  flutter_lints: ^3.0.1
   build_runner: ^2.3.3
   freezed: ^2.3.2
   json_serializable: ^6.6.1
