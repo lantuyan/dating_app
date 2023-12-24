@@ -22,7 +22,7 @@ class UserCard extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: Stack(
             children: [
-              UserImage.large(url: user.imageUrls[0]),
+              UserImage.large(url: user.imageUrls[0] as String),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -63,7 +63,7 @@ class UserCard extends StatelessWidget {
                           itemBuilder: (builder, index) {
                             return (index < user.imageUrls.length)
                                 ? UserImage.small(
-                                    url: user.imageUrls[index],
+                                    url: user.imageUrls[index] as String,
                                     margin:
                                         const EdgeInsets.only(top: 8, right: 8),
                                   )

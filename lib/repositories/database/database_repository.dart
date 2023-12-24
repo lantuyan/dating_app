@@ -24,7 +24,7 @@ class DatabaseRepository extends BaseDatabaseRepository {
     return _firebaseFirestore
         .collection('users')
         // .where('gender', isEqualTo: _selectGender(user))
-        .where('gender', whereIn: _selectGender(user))
+        .where('gender', whereIn: _selectGender(user) as List<String>)
         .snapshots()
         .map((snap) {
       return snap.docs.map((doc) => User.fromSnapshot(doc)).toList();
@@ -51,9 +51,11 @@ class DatabaseRepository extends BaseDatabaseRepository {
                 user.age >= currentUser.ageRangePreference![0] &&
                     user.age <= currentUser.ageRangePreference![1];
 
-            bool isWithinDistance = _getDistance(currentUser, user) <=
-                currentUser.distancePreference;
-
+            // bool isWithinDistance = _getDistance(currentUser, user)  <= currentUser.distancePreference
+            var a = _getDistance(currentUser, user) as int;
+            var b = currentUser.distancePreference as int;
+            bool isWithinDistance = a <= b;
+            
             if (isCurrentUser) return false;
             if (wasSwipedLeft) return false;
             if (wasSwipedRight) return false;

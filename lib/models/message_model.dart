@@ -18,11 +18,11 @@ class Message extends Equatable {
 
   factory Message.fromJson(Map<String, dynamic> json, {String? id}) {
     return Message(
-      senderId: id ?? json['senderId'],
-      receiverId: json['receiverId'],
-      message: json['message'],
-      dateTime: json['dateTime'].toDate(),
-      timeString: DateFormat("HH:mm").format(json['dateTime'].toDate()),
+      senderId: id ?? json['senderId'] as String,
+      receiverId: json['receiverId']  as String,
+      message: json['message'] as String,
+      dateTime: json['dateTime'].toDate() as DateTime,
+      timeString: DateFormat("HH:mm").format(json['dateTime'].toDate() as DateTime),
     );
   }
 

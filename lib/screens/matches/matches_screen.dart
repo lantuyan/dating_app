@@ -133,7 +133,7 @@ class ChatsList extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 10, right: 10),
                 height: 70,
                 width: 70,
-                url: activeMatches[index].matchUser.imageUrls[0],
+                url: activeMatches[index].matchUser.imageUrls[0] as String,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,7 +186,7 @@ class MatchesList extends StatelessWidget {
                 UserImage.small(
                   height: 70,
                   width: 70,
-                  url: inactiveMatches[index].matchUser.imageUrls[0],
+                  url: inactiveMatches[index].matchUser.imageUrls[0] as String,
                 ),
                 Text(
                   inactiveMatches[index].matchUser.name,

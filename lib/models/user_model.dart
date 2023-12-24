@@ -95,19 +95,19 @@ class User extends Equatable {
               .toList();
       userDistancePreference = (data['distancePreference'] == null)
           ? 30
-          : data['distancePreference'];
+          : data['distancePreference'] as int;
     }
 
     User user = User(
       id: snap.id,
-      name: snap['name'],
-      age: snap['age'],
-      gender: snap['gender'],
-      imageUrls: snap['imageUrls'],
-      interests: snap['interests'],
-      bio: snap['bio'],
-      jobTitle: snap['jobTitle'],
-      location: Location.fromJson(snap['location']),
+      name: snap['name'] as String,
+      age: snap['age'] as int,
+      gender: snap['gender'] as String,
+      imageUrls: snap['imageUrls'] as List,
+      interests: snap['interests'] as List,
+      bio: snap['bio'] as String,
+      jobTitle: snap['jobTitle'] as String,
+      location: Location.fromJson(snap['location'] as Map<String, dynamic>), 
       swipeLeft: (snap['swipeLeft'] as List)
           .map((swipeLeft) => swipeLeft as String)
           .toList(),

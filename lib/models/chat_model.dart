@@ -18,13 +18,13 @@ class Chat extends Equatable {
         (json['userIds'] as List).map((userId) => userId as String).toList();
 
     List<Message> messages = (json['messages'] as List)
-        .map((message) => Message.fromJson(message))
+        .map((message) => Message.fromJson(message as Map<String, dynamic>))
         .toList();
 
     messages.sort((a, b) => b.dateTime.compareTo(a.dateTime));
 
     return Chat(
-      id: id ?? json['id'],
+      id: id ?? json['id'] as String,
       userIds: userIds,
       messages: messages,
     );

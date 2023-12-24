@@ -36,7 +36,7 @@ class PicturesTab extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return (imageCount > index)
                   ? UserImage.medium(
-                      url: images[index],
+                      url: images[index] as String,
                       border: Border.all(
                         width: 1,
                         color: Theme.of(context).primaryColor,

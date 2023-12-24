@@ -35,17 +35,17 @@ class Location extends Equatable {
   factory Location.fromJson(Map<String, dynamic> json) {
     if (json.keys.contains('place_id')) {
       return Location(
-        placeId: json['place_id'],
-        name: json['name'],
-        lat: json['geometry']['location']['lat'],
-        lon: json['geometry']['location']['lng'],
+        placeId: json['place_id'] as String,
+        name: json['name'] as String,
+        lat: json['geometry']['location']['lat'] as num,
+        lon: json['geometry']['location']['lng'] as num,
       );
     } else {
       return Location(
-        placeId: json['placeId'],
-        name: json['name'],
-        lat: json['lat'],
-        lon: json['lon'],
+        placeId: json['placeId'] as String,
+        name: json['name']  as String,
+        lat: json['lat'] as num,
+        lon: json['lon'] as num,
       );
     }
   }

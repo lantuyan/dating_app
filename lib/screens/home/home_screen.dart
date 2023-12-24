@@ -113,7 +113,7 @@ class SwipeMatchedHomeScreen extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 45,
                       backgroundImage: NetworkImage(
-                          context.read<AuthBloc>().state.user!.imageUrls[0]),
+                          context.read<AuthBloc>().state.user!.imageUrls[0] as String),
                     ),
                   ),
                 ),
@@ -131,7 +131,7 @@ class SwipeMatchedHomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     child: CircleAvatar(
                       radius: 45,
-                      backgroundImage: NetworkImage(state.user.imageUrls[0]),
+                      backgroundImage: NetworkImage(state.user.imageUrls[0] as String),
                     ),
                   ),
                 ),

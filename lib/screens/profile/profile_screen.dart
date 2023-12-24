@@ -62,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 10),
                   UserImage.medium(
-                    url: state.user.imageUrls[0],
+                    url: state.user.imageUrls[0] as String,
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
@@ -277,7 +277,7 @@ class _Pictures extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 5.0),
                     child: UserImage.small(
                       width: 100,
-                      url: state.user.imageUrls[index],
+                      url: state.user.imageUrls[index] as String,
                       border: Border.all(
                         color: Theme.of(context).primaryColor,
                       ),

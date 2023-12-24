@@ -39,7 +39,7 @@ class UsersScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 45.0),
                     child: UserImage.medium(
-                      url: user.imageUrls[0],
+                      url: user.imageUrls[0] as String,
                       height: MediaQuery.of(context).size.height * 0.5,
                       width: double.infinity,
                     ),
@@ -131,7 +131,7 @@ class UsersScreen extends StatelessWidget {
                               ),
                             ),
                             child: Text(
-                              interest,
+                              interest as String,
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6!

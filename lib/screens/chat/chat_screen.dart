@@ -158,7 +158,7 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           CircleAvatar(
             radius: 15,
-            backgroundImage: NetworkImage(match.matchUser.imageUrls[0]),
+            backgroundImage: NetworkImage(match.matchUser.imageUrls[0] as String),
           ),
           Text(
             match.matchUser.name,
